@@ -76,3 +76,14 @@ Reglas:
 - Para sumar, quitar o corregir personas/roles del organigrama, modificar solo `data/organigrama.json`.
 - Mantener bloques y descripciones.
 - No reemplazar el organigrama por una vista genérica.
+
+
+## Reglas estrictas de bajo consumo
+
+- No abrir `Version QA/` bajo ningún motivo.
+- No abrir `data/contenido-original.json` salvo pedido explícito del usuario.
+- No analizar `assets/`.
+- Para contenido operativo: tocar solo `docs/` y `data/documentos-index.json`.
+- Para organigrama: tocar solo `data/organigrama.json` y `data/jerarquia.json`.
+- Para diseño: tocar solo `css/styles.css`.
+- Para lógica: tocar solo el archivo `js/` específico de la tarea.

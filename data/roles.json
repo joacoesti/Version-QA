@@ -1,33 +1,19 @@
 [
   {
-    "id": "encargado-abastecimiento",
+    "id": "abastecimiento",
     "sectorId": "abastecimiento",
-    "label": "Encargado/a de Abastecimiento",
-    "sub": "Turno completo",
+    "label": "Abastecimiento",
+    "sub": "Rol general · tareas cruzadas",
     "documentos": [
       "tareas-diarias",
       "paso-a-paso",
       "manual-rol"
     ],
-    "puesto": "Encargado/a de Abastecimiento",
+    "puesto": "Abastecimiento",
     "persona": "Pendiente de asignación",
     "estado": "Rol operativo cargado",
     "reporta": "Jefe de Cocina / Operaciones",
-    "nivel": "Encargado"
-  },
-  {
-    "id": "auxiliar-abastecimiento",
-    "sectorId": "abastecimiento",
-    "label": "Auxiliar de Abastecimiento",
-    "sub": "Reemplazo / soporte",
-    "documentos": [
-      "tareas-diarias"
-    ],
-    "puesto": "Auxiliar de Abastecimiento",
-    "persona": "Pendiente de asignación",
-    "estado": "Rol operativo cargado",
-    "reporta": "Encargado/a de Abastecimiento",
-    "nivel": "Auxiliar"
+    "nivel": "Operativo"
   },
   {
     "id": "jefe-cocina",

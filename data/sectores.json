@@ -4,8 +4,7 @@
     "label": "Abastecimiento",
     "icono": "🛒",
     "roles": [
-      "encargado-abastecimiento",
-      "auxiliar-abastecimiento"
+      "abastecimiento"
     ]
   },
   {

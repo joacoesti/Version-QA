@@ -1,0 +1,6 @@
+# Bajo consumo · ignorar en sesiones de Claude
+Version QA/
+data/contenido-original.json
+assets/
+*.zip
+*.xlsx

@@ -14,15 +14,10 @@
     "nivel": "level-ayudante",
     "label": "Auxiliar"
   },
-  "encargado-abastecimiento": {
+  "abastecimiento": {
     "reporta": "Jefe de Cocina / Operaciones",
     "nivel": "level-encargado",
-    "label": "Encargado"
-  },
-  "auxiliar-abastecimiento": {
-    "reporta": "Encargado/a de Abastecimiento",
-    "nivel": "level-auxiliar",
-    "label": "Auxiliar"
+    "label": "Abastecimiento"
   },
   "jefe-operativo-panificadora": {
     "reporta": "Gerencia / Dirección Operativa",

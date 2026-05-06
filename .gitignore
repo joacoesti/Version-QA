@@ -1,0 +1,10 @@
+# Carpeta legacy duplicada (versión vieja con su propio .git)
+Version QA/
+
+# Datos pesados que no deben subirse al repo
+*.zip
+*.xlsx
+
+# Sistema operativo
+Thumbs.db
+.DS_Store

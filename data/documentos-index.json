@@ -1,9 +1,9 @@
 [
   {
-    "id": "encargado-abastecimiento-tareas-diarias",
+    "id": "abastecimiento-tareas-diarias",
     "documentoId": "tareas-diarias",
     "sectorId": "abastecimiento",
-    "roleId": "encargado-abastecimiento",
+    "roleId": "abastecimiento",
     "badge": "Tareas del día",
     "titulo": "Listado de tareas diarias",
     "descripcion": "Rutina completa por momentos del día",
@@ -12,10 +12,10 @@
     "path": "docs/abastecimiento/encargado-abastecimiento-tareas-diarias.md"
   },
   {
-    "id": "encargado-abastecimiento-paso-a-paso",
+    "id": "abastecimiento-paso-a-paso",
     "documentoId": "paso-a-paso",
     "sectorId": "abastecimiento",
-    "roleId": "encargado-abastecimiento",
+    "roleId": "abastecimiento",
     "badge": "Próximamente",
     "titulo": "Paso a paso operativo",
     "descripcion": "Instrucciones detalladas por tarea",
@@ -24,25 +24,13 @@
     "path": null
   },
   {
-    "id": "encargado-abastecimiento-manual-rol",
+    "id": "abastecimiento-manual-rol",
     "documentoId": "manual-rol",
     "sectorId": "abastecimiento",
-    "roleId": "encargado-abastecimiento",
+    "roleId": "abastecimiento",
     "badge": "Próximamente",
     "titulo": "Manual del rol",
     "descripcion": "Responsabilidades, autoridad e indicadores",
-    "disponible": false,
-    "tipo": "markdown",
-    "path": null
-  },
-  {
-    "id": "auxiliar-abastecimiento-tareas-diarias",
-    "documentoId": "tareas-diarias",
-    "sectorId": "abastecimiento",
-    "roleId": "auxiliar-abastecimiento",
-    "badge": "Próximamente",
-    "titulo": "Listado de tareas diarias",
-    "descripcion": "En desarrollo",
     "disponible": false,
     "tipo": "markdown",
     "path": null
