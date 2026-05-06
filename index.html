@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>UNISOL · Instructivos</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="header-top">
+        <button class="back-btn" id="backBtn">← Volver</button>
+        <div class="logo-row" id="logoRow">
+          <img class="logo-img" id="logoImg" src="assets/logo.png" alt="UNISOL">
+          <div>
+            <div class="logo-name">UNISOL</div>
+            <div class="logo-slogan">Instructivos operativos</div>
+          </div>
+        </div>
+        <div id="headerDetailTitle"></div>
+      </div>
+      <div id="headerSub"></div>
+      <nav class="tabs" id="tabs">
+        <button class="tab-btn active" data-tab="roles">Roles</button>
+        <button class="tab-btn" data-tab="procedimientos">Procedimientos</button>
+        <button class="tab-btn" data-tab="organigrama">Organigrama</button>
+        <button class="tab-btn" data-tab="planillas">Planillas</button>
+      </nav>
+      <div class="search-wrap">
+        <div class="search-box">
+          <span class="search-icon">🔎</span>
+          <input id="searchInput" placeholder="Buscar rol, sector o documento...">
+          <button id="searchClear">✕</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="content-area" id="root">
+      <section class="screen active">
+        <div class="content-block">Cargando...</div>
+      </section>
+    </section>
+  </main>
+
+  <div class="orga-modal-bg" id="orgaModal" onclick="if(event.target===this) orgaHide()">
+    <div class="orga-modal">
+      <div class="orga-modal-icon" id="orga-m-icon">👤</div>
+      <div class="orga-modal-title" id="orga-m-title">—</div>
+      <div class="orga-modal-cargo" id="orga-m-cargo">—</div>
+      <div class="orga-modal-info" id="orga-m-info">—</div>
+      <button class="orga-modal-close" onclick="orgaHide()">Cerrar</button>
+    </div>
+  </div>
+
+
+  <script src="js/config-loader.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/markdown.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
