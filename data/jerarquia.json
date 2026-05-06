@@ -1,0 +1,37 @@
+{
+  "jefe-cocina": {
+    "reporta": "Gerencia / Dirección Operativa",
+    "nivel": "level-jefe",
+    "label": "Jefe"
+  },
+  "auxiliar-jefe-cocina": {
+    "reporta": "Jefe de Cocina",
+    "nivel": "level-auxiliar",
+    "label": "Auxiliar"
+  },
+  "auxiliar-cocina": {
+    "reporta": "Jefe de Cocina",
+    "nivel": "level-ayudante",
+    "label": "Auxiliar"
+  },
+  "encargado-abastecimiento": {
+    "reporta": "Jefe de Cocina / Operaciones",
+    "nivel": "level-encargado",
+    "label": "Encargado"
+  },
+  "auxiliar-abastecimiento": {
+    "reporta": "Encargado/a de Abastecimiento",
+    "nivel": "level-auxiliar",
+    "label": "Auxiliar"
+  },
+  "jefe-operativo-panificadora": {
+    "reporta": "Gerencia / Dirección Operativa",
+    "nivel": "level-jefe",
+    "label": "Jefe Operativo"
+  },
+  "productor-facturas": {
+    "reporta": "Jefe Operativo Panificadora",
+    "nivel": "level-ayudante",
+    "label": "Producción"
+  }
+}

@@ -1,0 +1,913 @@
+{
+  "empresa": "UNISOL",
+  "sectores": [
+    {
+      "id": "abastecimiento",
+      "label": "Abastecimiento",
+      "icono": "🛒",
+      "roles": [
+        {
+          "id": "encargado-abastecimiento",
+          "label": "Encargado/a de Abastecimiento",
+          "sub": "Turno completo",
+          "documentos": [
+            {
+              "id": "tareas-diarias",
+              "badge": "Tareas del día",
+              "titulo": "Listado de tareas diarias",
+              "descripcion": "Rutina completa por momentos del día",
+              "disponible": true,
+              "bloques": [
+                {
+                  "titulo": "A · Apertura / Ingreso al sector",
+                  "intro": "Dejar el sector habilitado y en condiciones antes de comenzar el relevamiento.",
+                  "items": [
+                    "Fichar el ingreso.",
+                    "Revisar si quedaron novedades del día anterior o indicaciones pendientes.",
+                    "Levantar persianas de heladeras, islas o exhibidores que estén bajas.",
+                    "Encender los equipos y luces del sector.",
+                    "Verificar que heladeras, islas y freezers estén encendidos y comenzando a enfriar correctamente.",
+                    "Si hace falta, pasar un trapo húmedo por frentes y vidrios para mejorar la presentación inicial.",
+                    "Observar el estado general del sector: orden, limpieza, exhibición y mercadería fuera de lugar."
+                  ],
+                  "critico": null,
+                  "aconfirmar": "¿Hay control de temperatura formal al ingreso? ¿Dónde se registra y qué se hace si un equipo no enfría?"
+                },
+                {
+                  "titulo": "B · Relevamiento del salón de ventas",
+                  "intro": "Primero se mira y se cuenta. Después se repone. La prioridad es detectar quiebres de stock o productos cerca de quiebre.",
+                  "items": [
+                    "Módulo Congelados: contar la cantidad de cada producto en góndola y completar la planilla de reposición.",
+                    "Identificar qué productos están más cerca de quiebre de stock — esos tienen prioridad.",
+                    "Módulo Isla: ordenar remanente de la noche, controlar etiquetas y vencimientos, completar planilla.",
+                    "Módulo Fiambrería: pasar a primera hora y tomar la comanda del día — jamón, queso, pepperoni, crudo.",
+                    "Comunicar faltantes al Jefe de Cocina o al segundo en línea si el Jefe no está."
+                  ],
+                  "critico": "No debe quedar producto vencido, sin etiqueta o con condición dudosa en exhibición.",
+                  "aconfirmar": "Confirmar en qué horario exacto se pasa por Fiambrería a tomar la comanda."
+                },
+                {
+                  "titulo": "D · Primera reposición · 8:00",
+                  "intro": "Cargar los congelados lo más completo posible para que esta sea la única reposición fuerte del día en ese módulo.",
+                  "items": [
+                    "Usar la planilla de congelados para separar en el carro las cantidades que faltan.",
+                    "Controlar que todos los productos tengan presentación y etiqueta correcta antes de cruzar.",
+                    "Notificar al Jefe de Cocina los quiebres de stock.",
+                    "Pasar al Jefe de Cocina la comanda de productos de isla según planilla.",
+                    "Separar los productos de isla disponibles en Cocina para cubrir faltantes básicos.",
+                    "Cruzar al salón con los congelados y los productos de isla disponibles.",
+                    "Reponer sin sobrecargar, respetando la ubicación definida de cada familia.",
+                    "Aplicar FIFO: dejar adelante o arriba los productos con vencimiento más próximo."
+                  ],
+                  "critico": "Si el freezer queda cargado a tope, probablemente no haga falta otra reposición fuerte de congelados en el día.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "E · Segunda reposición · 9:00 a 10:00",
+                  "intro": "Asegurar el surtido visible de isla, Fiambrería y pollos antes del tramo fuerte de venta.",
+                  "items": [
+                    "Usando la planilla de isla ya entregada a Cocina, separar los productos disponibles.",
+                    "Controlar presentación, etiqueta y vencimiento antes de cruzar.",
+                    "Notificar al Jefe de Cocina los productos que no se pudieron reponer por falta de stock.",
+                    "Cruzar productos de isla al salón y aplicar FIFO.",
+                    "Repetir con productos para Fiambrería y pollos. Se puede hacer en uno o dos envíos."
+                  ],
+                  "critico": "No llenar de cualquier forma. La exhibición tiene que verse prolija, ordenada y vendible.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "F · Envíos durante el día",
+                  "intro": "Los horarios son una referencia. Antes de cada envío, revisar qué falta y qué hay disponible.",
+                  "items": [
+                    "1° envío · 8:00 — Primera carga de congelados + isla disponible.",
+                    "2° envío · 10:00 — Surtido de isla, Fiambrería y pollos.",
+                    "3° envío · 12:00 — Refuerzo según ventas y faltantes de la mañana.",
+                    "4° envío · 14:00 — Reposición de mediodía.",
+                    "5° envío · 16:00 — Refuerzo de tarde.",
+                    "6° envío · 18:00 — Reposición previa al tramo final de venta.",
+                    "7° envío · 20:00 — Último control antes del cierre del turno."
+                  ],
+                  "critico": null,
+                  "aconfirmar": "Definir en qué horarios es obligatorio tener todo lleno — los momentos críticos de venta."
+                },
+                {
+                  "titulo": "K · Seguimiento durante la jornada",
+                  "intro": "Mantener la exhibición ordenada, completa y en buen estado durante todo el día.",
+                  "items": [
+                    "Revisar periódicamente isla, heladeras y freezers.",
+                    "Detectar productos que se vendieron rápido y reponer huecos.",
+                    "Ordenar productos desplazados o mal acomodados.",
+                    "Mantener la rotación correcta por vencimiento (FIFO).",
+                    "Avisar a Cocina si un producto crítico se está terminando.",
+                    "Separar producto no apto o dudoso y avisar para decidir si se decomisa."
+                  ],
+                  "critico": "Faltante detectado pero no comunicado = góndola vacía = venta perdida.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "L · Stock periódico · Dom / Mié / Vie",
+                  "intro": "Controlar el stock real de freezers y cámara interna, separado de lo que está en el salón.",
+                  "items": [
+                    "Contar los productos disponibles en freezer o cámara interna.",
+                    "No contar como stock lo que ya está exhibido en el salón.",
+                    "Registrar el stock en la planilla correspondiente.",
+                    "Verificar que cada producto esté en su lugar fijo — cada freezer tiene rotulado el nombre del producto.",
+                    "Detectar productos por debajo del stock mínimo sugerido.",
+                    "Informar faltantes o urgencias al Jefe de Cocina o al segundo en línea."
+                  ],
+                  "critico": "Hoy se retiran productos del freezer y no siempre se anotan. Eso hace que el stock real se pierda. Hay que anotarlo siempre.",
+                  "aconfirmar": "Definir los stocks mínimos por producto junto con Cocina."
+                },
+                {
+                  "titulo": "M · Cierre / fin de turno · 20:00",
+                  "intro": "El turno de Abastecimiento termina a las 20:00. El cierre final de la isla queda a cargo de Fiambrería.",
+                  "items": [
+                    "Revisar el estado final de isla, heladeras y freezers antes de retirarse.",
+                    "Verificar que no queden productos vencidos, dudosos o sin etiqueta exhibidos.",
+                    "Dejar adelante o arriba los productos con vencimiento más próximo.",
+                    "Informar faltantes críticos y productos con stock bajo para el día siguiente.",
+                    "Dejar novedades registradas o comunicadas al referente correspondiente."
+                  ],
+                  "critico": null,
+                  "aconfirmar": "¿Dónde se registran las novedades del cierre — cuaderno, planilla, app?"
+                }
+              ]
+            },
+            {
+              "id": "paso-a-paso",
+              "badge": "Próximamente",
+              "titulo": "Paso a paso operativo",
+              "descripcion": "Instrucciones detalladas por tarea",
+              "disponible": false,
+              "bloques": []
+            },
+            {
+              "id": "manual-rol",
+              "badge": "Próximamente",
+              "titulo": "Manual del rol",
+              "descripcion": "Responsabilidades, autoridad e indicadores",
+              "disponible": false,
+              "bloques": []
+            }
+          ]
+        },
+        {
+          "id": "auxiliar-abastecimiento",
+          "label": "Auxiliar de Abastecimiento",
+          "sub": "Reemplazo / soporte",
+          "documentos": [
+            {
+              "id": "tareas-diarias",
+              "badge": "Próximamente",
+              "titulo": "Listado de tareas diarias",
+              "descripcion": "En desarrollo",
+              "disponible": false,
+              "bloques": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocina",
+      "label": "Cocina",
+      "icono": "🍳",
+      "roles": [
+        {
+          "id": "jefe-cocina",
+          "label": "Jefe de Cocina",
+          "sub": "Turno mañana",
+          "documentos": [
+            {
+              "id": "tareas-diarias",
+              "badge": "Tareas del día",
+              "titulo": "Listado de tareas diarias",
+              "descripcion": "Rutina completa por momentos del día",
+              "disponible": true,
+              "bloques": [
+                {
+                  "titulo": "A · Apertura de cocina / Ingreso al sector",
+                  "intro": "Dejar la cocina lista para producir sin perder los primeros minutos de la mañana.",
+                  "items": [
+                    "Llegar y fichar ingreso en el supermercado.",
+                    "Buscar la comanda o pedido dejado por Fiambrería.",
+                    "Buscar la llave para abrir la cocina en la recepción.",
+                    "Ingresar al sector y verificar que la cocina esté en condiciones para arrancar.",
+                    "Encender horno y freidora que se usen en la primera parte del día.",
+                    "Revisar cámara, heladeras y mise en place que quedó del turno anterior.",
+                    "Detectar si faltan rellenos, papas peladas, cebolla, rebozados, pollo preparado u otra base necesaria."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "B · Lectura de comanda y decisión de prioridades",
+                  "intro": "Transformar el pedido del día en tareas claras para el equipo.",
+                  "items": [
+                    "Leer la comanda completa antes de repartir tareas.",
+                    "Comparar el pedido con lo que ya hay en cámara o freezers.",
+                    "Separar mentalmente lo urgente de lo que puede esperar.",
+                    "Priorizar productos que deben estar visibles temprano en góndola, isla o heladeras."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "C · Reparto de tareas al equipo",
+                  "intro": "Que cada ayudante sepa exactamente qué hacer y en qué orden.",
+                  "items": [
+                    "Asignar una tarea principal a cada persona según habilidad y carga del día.",
+                    "Revisar si alguien terminó y reasignar para no dejar tiempos muertos.",
+                    "Comunicar al equipo la prioridad inicial antes de que cada uno arranque."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "D · Producción inicial de la mañana",
+                  "intro": "Llegar con producto suficiente al primer abastecimiento y no atrasar la venta.",
+                  "items": [
+                    "Revisar empanadas disponibles en cámara y hornear lo que falte.",
+                    "El mínimo operativo de empanadas es 7 placas. Producir antes de quedarse sin stock.",
+                    "Organizar la freidora para productos críticos: bombas de papa, bocaditos, milanesas, papas y frituras del día.",
+                    "Aprovechar el tiempo del pollo al spiedo para adelantar tartas, tortillas o plato del día.",
+                    "Controlar que ensaladas avancen en paralelo durante toda la mañana.",
+                    "Pedir que se completen rellenos, cebolla rehogada, carne, pollo u otras bases cuando falten.",
+                    "Revisar que cada producto terminado quede identificado, separado y listo para cruce o exhibición."
+                  ],
+                  "critico": "El mínimo operativo de empanadas es 7 placas. No esperar al quiebre para producir.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "E · Coordinación con Abastecimiento",
+                  "intro": "Que el producto terminado llegue a góndola, isla, heladeras o Fiambrería.",
+                  "items": [
+                    "Informar al encargado de Abastecimiento qué productos están listos para cruzar.",
+                    "Separar producto terminado por destino cuando sea posible: isla, heladera, congelados o Fiambrería.",
+                    "Respetar los horarios de envío definidos: 08:00, 10:00, 12:00, 14:00, 16:00 y 18:00."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "F · Seguimiento durante la jornada",
+                  "intro": "Mantener el ritmo y corregir faltantes sin esperar al cierre.",
+                  "items": [
+                    "Revisar con el equipo qué tareas ya se terminaron y qué falta.",
+                    "Escuchar faltantes informados por Abastecimiento o Fiambrería.",
+                    "Definir refuerzos de producción según venta real y stock visible.",
+                    "Controlar que no se acumulen productos terminados sin destino. El producto sin destino va a decomiso; si tiene otro uso posible, lo define el Jefe de Cocina."
+                  ],
+                  "critico": "El producto sin destino va a decomiso. Si tiene otro uso posible, lo define el Jefe de Cocina.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "G · Traspaso al turno posterior",
+                  "intro": "Que la cocina de mañana no arranque haciendo tareas que deberían quedar listas de antes.",
+                  "items": [
+                    "Indicar al turno posterior qué bases deben quedar preparadas.",
+                    "Dejar avisados los faltantes críticos para el próximo día.",
+                    "Cerrar el día con novedades claras para evitar que la mañana arranque a ciegas."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                }
+              ]
+            },
+            {
+              "id": "paso-a-paso",
+              "badge": "Próximamente",
+              "titulo": "Paso a paso operativo",
+              "descripcion": "Instrucciones detalladas por tarea",
+              "disponible": false,
+              "bloques": []
+            },
+            {
+              "id": "manual-rol",
+              "badge": "Próximamente",
+              "titulo": "Manual del rol",
+              "descripcion": "Responsabilidades, autoridad e indicadores",
+              "disponible": false,
+              "bloques": []
+            }
+          ]
+        },
+        {
+          "id": "auxiliar-jefe-cocina",
+          "label": "Auxiliar del Jefe de Cocina",
+          "sub": "Turno tarde",
+          "documentos": [
+            {
+              "id": "tareas-diarias",
+              "badge": "Tareas del día",
+              "titulo": "Listado de tareas diarias",
+              "descripcion": "Rutina completa turno tarde",
+              "disponible": true,
+              "bloques": [
+                {
+                  "titulo": "A · Ingreso al turno / Toma de la cocina",
+                  "intro": "Recibir la cocina ordenadamente y entender qué debe continuarse durante el resto de la jornada.",
+                  "items": [
+                    "Llegar y fichar ingreso en el supermercado.",
+                    "Presentarse en cocina y tomar contacto con el Jefe de Cocina o referente anterior.",
+                    "Consultar qué tareas quedaron pendientes del turno mañana.",
+                    "Revisar si hay productos en proceso que deban terminarse, retirarse, guardarse o cruzarse.",
+                    "Verificar si hay comida en agua, cocción, enfriado o preparación que no pueda quedar sin control.",
+                    "Revisar cámara, heladeras y sectores de trabajo para entender el estado real de la cocina."
+                  ],
+                  "critico": null,
+                  "aconfirmar": "¿Existe hoja de pase de turno o la información se transmite solo verbalmente?"
+                },
+                {
+                  "titulo": "B · Coordinación con el referente anterior",
+                  "intro": "Continuar la jornada sin cortar la información entre turno mañana y turno tarde.",
+                  "items": [
+                    "Preguntar qué productos tienen prioridad para terminarse durante la tarde.",
+                    "Confirmar qué faltantes quedaron detectados y cuáles deben resolverse antes del cierre.",
+                    "Consultar qué bases deben prepararse para el día siguiente.",
+                    "Aclarar si hay pedidos especiales de Fiambrería, Abastecimiento o algún referente del sector.",
+                    "Confirmar si queda alguna tarea que no puede postergarse."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "C · Asignación de tareas al equipo del turno tarde",
+                  "intro": "Ordenar el trabajo del personal disponible y evitar tiempos muertos.",
+                  "items": [
+                    "Asignar tareas según urgencia y habilidad de cada persona.",
+                    "Revisar si alguien terminó una tarea y reasignarlo a la siguiente prioridad.",
+                    "Asegurar que nadie cambie de tarea crítica sin avisar."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "D · Chequeo de stock y productos para elaboración",
+                  "intro": "Asegurar que existan bases suficientes para terminar productos del día y preparar el arranque del día siguiente.",
+                  "items": [
+                    "Revisar rellenos disponibles y detectar si falta preparar alguno.",
+                    "Controlar si hay productos cocidos o semielaborados que deben enfriarse, etiquetarse o guardarse.",
+                    "Verificar papas, cebolla, verduras, rebozados, pollo, milanesas u otras bases necesarias.",
+                    "Informar faltantes importantes al responsable de cocina."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "E · Producción y preparación para el día siguiente",
+                  "intro": "Dejar bases listas para que el turno mañana no pierda tiempo en tareas que podían quedar preparadas.",
+                  "items": [
+                    "Continuar o finalizar producción pendiente del turno mañana.",
+                    "Preparar bases necesarias para el día siguiente según indicación recibida.",
+                    "Dejar listos rellenos, verduras, rebozados, papas, cebolla u otros preparados que correspondan.",
+                    "Guardar producto preparado correctamente: tapado, identificado y ubicado en cámara o heladera."
+                  ],
+                  "critico": null,
+                  "aconfirmar": "¿Qué datos debe incluir la etiqueta de identificación de producto?"
+                },
+                {
+                  "titulo": "F · Coordinación con Fiambrería y cruce de mercadería",
+                  "intro": "Asegurar que el producto terminado llegue al destino correspondiente durante la tarde.",
+                  "items": [
+                    "Coordinar con Fiambrería qué mercadería necesita cruzarse durante el turno.",
+                    "Separar producto terminado por destino cuando sea posible.",
+                    "Avisar a Abastecimiento o Fiambrería cuando haya producto listo para retirar o cruzar."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "G · Cierre de cocina al final del turno",
+                  "intro": "Dejar la cocina ordenada, con productos guardados y novedades claras para el día siguiente.",
+                  "items": [
+                    "Revisar que no queden productos en proceso sin control.",
+                    "Guardar productos terminados o bases preparadas en el lugar correspondiente.",
+                    "Verificar que los productos queden tapados, identificados y correctamente ubicados.",
+                    "Ordenar sectores de trabajo y controlar limpieza básica del cierre.",
+                    "Baldeada y limpieza general del espacio."
+                  ],
+                  "critico": "No se puede cerrar el turno sin baldeada y limpieza general.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "H · Reporte al responsable de cocina",
+                  "intro": "Dejar trazabilidad simple de lo realizado y de lo que queda pendiente.",
+                  "items": [
+                    "Informar qué tareas se realizaron durante el turno.",
+                    "Informar qué producción quedó lista para el día siguiente.",
+                    "Informar cualquier problema de mercadería, equipo, limpieza o cruce."
+                  ],
+                  "critico": null,
+                  "aconfirmar": "¿El reporte es verbal, cuaderno, planilla o app?"
+                }
+              ]
+            },
+            {
+              "id": "paso-a-paso",
+              "badge": "Próximamente",
+              "titulo": "Paso a paso operativo",
+              "descripcion": "Instrucciones detalladas por tarea",
+              "disponible": false,
+              "bloques": []
+            },
+            {
+              "id": "manual-rol",
+              "badge": "Próximamente",
+              "titulo": "Manual del rol",
+              "descripcion": "Responsabilidades, autoridad e indicadores",
+              "disponible": false,
+              "bloques": []
+            }
+          ]
+        },
+        {
+          "id": "ayudante-cocina",
+          "label": "Ayudante de Cocina",
+          "sub": "Por sector asignado",
+          "documentos": [
+            {
+              "id": "tareas-diarias",
+              "badge": "Tareas del día",
+              "titulo": "Listado de tareas diarias",
+              "descripcion": "Tareas generales y por sector de cocina",
+              "disponible": true,
+              "bloques": [
+                {
+                  "titulo": "A · Rol general del Ayudante de Cocina",
+                  "intro": "Cumplir la tarea asignada por el Jefe de Cocina o el Auxiliar del Jefe, manteniendo orden, limpieza y comunicación durante el trabajo.",
+                  "items": [
+                    "Llegar y fichar ingreso en el supermercado.",
+                    "Presentarse en cocina y consultar qué tarea tiene prioridad.",
+                    "Preparar la estación de trabajo antes de comenzar: mesada, utensilios, bandejas, placas, insumos y elementos necesarios.",
+                    "Realizar la tarea asignada según el sector.",
+                    "Avisar antes de quedarse sin insumo, sin lugar, sin envases o sin posibilidad de continuar.",
+                    "Informar cuando una tanda o preparación esté lista.",
+                    "Limpiar la estación durante el trabajo y antes de cambiar de tarea."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "B · Trabajo ordenado durante la jornada",
+                  "intro": "Evitar pérdidas de tiempo, productos mezclados o tareas duplicadas.",
+                  "items": [
+                    "No iniciar una tarea distinta sin consultar si hay prioridades pendientes.",
+                    "Si aparece un faltante, avisar al Jefe de Cocina o al Auxiliar del Jefe.",
+                    "Si una preparación queda pendiente, dejarla claramente separada e informada.",
+                    "Antes de retirarse de un sector, ordenar la mesada y dejar visible qué quedó listo y qué quedó pendiente."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "Sector · Fritura",
+                  "intro": "Cocinar productos fritos según la comanda y dar soporte a otros sectores cuando sea necesario.",
+                  "items": [
+                    "Chequear stock de productos elaborados antes de comenzar: milanesas, puré para bombas, acelga hervida u otras bases necesarias.",
+                    "Producir según la comanda o indicación del responsable.",
+                    "Armar, freír y cocinar productos del sector: bombas de papa, bocaditos, milanesas, papas y frituras del día.",
+                    "Dar soporte a Fuegos cuando corresponda: freír la papa de la tortilla, freír la papa del pollo o ayudar con preparación.",
+                    "Colaborar con tareas de corte, pelado o hervido cuando el sector esté al día.",
+                    "Avisar cuando falten bases para seguir friendo o cuando una tanda esté lista.",
+                    "Mantener limpia la freidora, la zona de trabajo y la heladera del sector."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "Sector · Fuegos",
+                  "intro": "Sostener la producción caliente, horno, spiedo y preparaciones principales del día.",
+                  "items": [
+                    "Preparar y controlar el pollo al spiedo según indicación del responsable.",
+                    "Hornear empanadas según faltantes, comanda o necesidad de abastecimiento.",
+                    "Armar y hornear tartas y tortillas.",
+                    "Preparar plato del día y plato de empleados cuando corresponda.",
+                    "Armar rusa, lengua y berenjenas según planificación del día.",
+                    "Preparar salsas y comidas al vacío cuando sean requeridas.",
+                    "Preparar o completar rellenos de empanadas.",
+                    "Avisar si falta insumo, bandeja, espacio de horno o base para continuar.",
+                    "Limpiar el sector al terminar o antes de cambiar de tarea."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "Sector · Ensaladas",
+                  "intro": "Preparar verduras, aderezos y ensaladas listas para venta o abastecimiento.",
+                  "items": [
+                    "Lavar verduras de hoja y verduras generales antes de la preparación.",
+                    "Centrifugar verduras de hoja para que queden listas para el armado.",
+                    "Preparar aderezos según necesidad del día.",
+                    "Rallar queso, preparar croutones y preparar pollo Caesar cuando corresponda.",
+                    "Armar flanes si la planificación del día lo requiere.",
+                    "Preparar ensaladas según indicación del responsable.",
+                    "Verificar si corresponde sellar las ensaladas o dejarlas listas para sellado.",
+                    "Avisar si faltan envases, etiquetas, verduras lavadas o ingredientes.",
+                    "Limpiar el sector al terminar o antes de cambiar de tarea."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "Sector · Milanesas",
+                  "intro": "Preparar milanesas, matambres y soporte de cocina manteniendo el sector limpio y ordenado.",
+                  "items": [
+                    "Armar la huevada o preparación para empanar.",
+                    "Buscar y preparar pan rallado.",
+                    "Empanar milanesas.",
+                    "Armar matambres cuando corresponda.",
+                    "Dar soporte a cocina con tareas generales: verduras para sopa, pelar papas u otras preparaciones necesarias.",
+                    "Separar producto listo para cocinar, guardar o cruzar según indicación.",
+                    "Limpiar el sector al terminar o antes de cambiar de tarea."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "Sector · Ensamblado / Armado",
+                  "intro": "Armar productos finales, envasar y apoyar el cruce hacia Abastecimiento cuando corresponda.",
+                  "items": [
+                    "Armar empanadas según relleno disponible y necesidad indicada.",
+                    "Envasar productos cuando corresponda.",
+                    "Sellar comida al vacío según indicación del responsable.",
+                    "Separar productos por destino: cocina, heladera, freezer, Fiambrería o Abastecimiento.",
+                    "Apoyar a Abastecimiento cuando se necesite cruce o movimiento de mercadería.",
+                    "Avisar si faltan tapas, rellenos, bolsas, etiquetas o insumos de envasado.",
+                    "Dejar identificado qué quedó armado, qué quedó pendiente y qué debe cruzarse.",
+                    "Limpiar el sector al terminar o antes de cambiar de tarea."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "C · Cierre",
+                  "intro": "Dejar el sector ordenado para que otra persona pueda continuar sin perder información.",
+                  "items": [
+                    "Terminar la tarea asignada o avisar claramente qué quedó pendiente.",
+                    "Guardar insumos abiertos en el lugar correspondiente.",
+                    "Dejar producto preparado tapado, identificado y separado en la cámara de frío.",
+                    "Limpiar mesada, utensilios y zona de trabajo.",
+                    "Limpieza general de la cocina.",
+                    "Fichar salida."
+                  ],
+                  "critico": "No retirarse sin haber limpiado el sector y avisado qué quedó pendiente.",
+                  "aconfirmar": null
+                }
+              ]
+            },
+            {
+              "id": "paso-a-paso",
+              "badge": "Próximamente",
+              "titulo": "Paso a paso operativo",
+              "descripcion": "Instrucciones detalladas por tarea",
+              "disponible": false,
+              "bloques": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiambreria",
+      "label": "Fiambrería",
+      "icono": "🥩",
+      "proximamente": true,
+      "roles": []
+    },
+    {
+      "id": "panificadora",
+      "label": "Panificadora",
+      "icono": "🥖",
+      "roles": [
+        {
+          "id": "jefe-operativo-panificadora",
+          "label": "Jefe Operativo de Panificadora",
+          "sub": "Turno mañana · 06:00",
+          "documentos": [
+            {
+              "id": "tareas-diarias",
+              "badge": "Tareas del día",
+              "titulo": "Listado de tareas diarias",
+              "descripcion": "Rutina completa por momentos del día",
+              "disponible": true,
+              "bloques": [
+                {
+                  "titulo": "A · Apertura de jornada / ingreso al sector",
+                  "intro": "Verificar que la Panificadora arranque en condiciones, con cámaras controladas, pedidos disponibles y primeras prioridades claras.",
+                  "items": [
+                    "Llegar a las 06:00 y dejar pertenencias en el locker antes de iniciar la recorrida.",
+                    "Revisar cámaras: Panadería, Pastelería, Manteca y Congelados.",
+                    "Chequear temperatura y orden de mercadería dentro de cada cámara.",
+                    "Validar que la mercadería esté en la cámara que corresponde y que no haya productos fuera de lugar.",
+                    "Tomar el pedido interno que dejan en Panadería de salón y revisar si hay indicaciones relevantes para producción.",
+                    "Recibir o revisar pedidos externos informados por Administración o canales definidos.",
+                    "Empezar a planificar qué debe hacer cada línea: Panadería, Facturas, Pastelería y Hornos."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "B · Lectura de pedidos y definición de prioridades",
+                  "intro": "Convertir pedidos internos, pedidos externos y faltantes comerciales en una prioridad diaria clara para el equipo.",
+                  "items": [
+                    "Leer el pedido interno de Panadería / Salón antes de distribuir tareas.",
+                    "Revisar pedidos externos de supermercados, sucursales u otros clientes cuando correspondan.",
+                    "Consolidar en la cabeza o en soporte de trabajo qué productos deben salir primero.",
+                    "Identificar productos críticos para la primera venta de la mañana.",
+                    "Diferenciar pedidos normales, refuerzos y urgencias."
+                  ],
+                  "critico": "Si los pedidos no se consolidan, se puede perder cantidad, duplicar producción o dejar un pedido sin cubrir.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "C · Asignación de tareas a las líneas de producción",
+                  "intro": "Ordenar el trabajo del equipo para que cada línea sepa qué producir, en qué orden y con qué prioridad.",
+                  "items": [
+                    "Distribuir tareas entre Panadería, Facturas, Pastelería y Hornos según necesidad del día.",
+                    "Consultar a cada sector si cuenta con la mercadería e insumos necesarios para producir.",
+                    "Reasignar prioridades si aparece un faltante importante en salón o en pedidos externos.",
+                    "Coordinar con Hornos el estado del primer carro y posibles problemas con la primera salida.",
+                    "Asegurar que cada línea entienda qué debe resolver primero y qué puede esperar.",
+                    "Dar soporte a los sectores si falta insumo, si una máquina no responde o si hay demoras relevantes."
+                  ],
+                  "critico": "Si las tareas se distribuyen solo de palabra y sin orden de prioridad, cada línea puede trabajar bien individualmente pero no necesariamente cubrir lo más urgente del negocio.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "D · Recorrida inicial al salón y coordinación comercial",
+                  "intro": "Ver si la necesidad comercial coincide con lo pedido y detectar faltantes críticos antes de que impacten en la venta.",
+                  "items": [
+                    "Bajar al salón después de revisar pedidos y organizar la primera producción.",
+                    "Realizar una primera recorrida visual para detectar faltantes importantes.",
+                    "Conversar con Panadería de Salón para coordinar si va a haber producto suficiente o si se necesita reforzar algo.",
+                    "Consultar si algún producto no está apto para venta o si hay observaciones de calidad comercial.",
+                    "Volver a Panificadora con las prioridades ajustadas si aparece una urgencia de salón."
+                  ],
+                  "critico": "Un faltante detectado en salón pero no traducido en prioridad para producción queda como reclamo, no como tarea ejecutable.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "E · Gestión de insumos y pedidos a Depósito / Administración",
+                  "intro": "Asegurar que las líneas tengan insumos disponibles para producir sin cortar la operación.",
+                  "items": [
+                    "A las 06:20 aproximadamente, realizar pedidos a Depósito de insumos diarios no acumulables o de alta rotación, como harina, sal u otros necesarios.",
+                    "Revisar qué mercadería solicita cada sector para producir.",
+                    "Buscar en stock interno la mercadería requerida y distribuirla a cada línea cuando corresponda.",
+                    "Pasar el listado de mercadería distribuida al área correspondiente para facturación interna.",
+                    "Los lunes, relevar stock de mercadería para cobertura semanal.",
+                    "Completar la planilla de pedido de insumos y canalizar compras directas a proveedores con Administración."
+                  ],
+                  "critico": "Si se entrega mercadería interna pero no se informa a Facturación Interna, se pierde trazabilidad de consumo entre sectores.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "F · Seguimiento operativo de media mañana",
+                  "intro": "Controlar que la producción avance, que no falten insumos y que los problemas se detecten antes de llegar tarde a la venta.",
+                  "items": [
+                    "Entre 09:00 y 10:00, realizar una vuelta por cada sector de producción.",
+                    "Preguntar qué necesita cada línea para continuar.",
+                    "Revisar si hay demoras, faltantes de insumos o problemas de equipo.",
+                    "Controlar de forma general que las máquinas estén funcionando bien.",
+                    "Prestar atención especial a equipos sensibles, como la máquina de hielo.",
+                    "Reordenar prioridades si algún sector está trabado o si aparece un pedido urgente."
+                  ],
+                  "critico": "Si el seguimiento se hace tarde, el problema aparece cuando ya impactó en la entrega o en la disponibilidad del salón.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "G · Control de calidad, desvíos y decomisos",
+                  "intro": "Asegurar que los problemas de calidad, merma o decomiso no queden sin registro ni responsable.",
+                  "items": [
+                    "Tener presente que la encargada de Panadería de salón funciona como filtro comercial final para decidir si un producto sale o no a la venta.",
+                    "Si Panadería informa que un producto no está en condiciones, revisar el caso y coordinar el tratamiento correspondiente.",
+                    "Todos los días, verificar si dejaron decomisos para gestionar.",
+                    "Contar o pesar decomiso según corresponda.",
+                    "Separar el producto y coordinar con Encargado de Cajas la carga del decomiso en computadora.",
+                    "Registrar o comunicar la novedad si el decomiso muestra una falla repetida de producción, calidad o manejo."
+                  ],
+                  "critico": "Si el decomiso se trata solo como descarte y no como dato, se pierde la oportunidad de detectar qué producto falla, cuándo y por qué.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "H · Comunicación administrativa y novedades",
+                  "intro": "Mantener informados los circuitos administrativos que sostienen la operación diaria.",
+                  "items": [
+                    "Informar ausentismos en el grupo o canal definido.",
+                    "Comunicar a Dirección las situaciones que excedan la operación normal o requieran definición."
+                  ],
+                  "critico": "Cuando la información viaja por WhatsApp, fotos o papeles sin consolidación única, aumenta el riesgo de que un pedido quede duplicado, incompleto o perdido.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "I · Cierre del rol / traspaso y continuidad",
+                  "intro": "Dejar claro qué quedó producido, qué faltó y qué necesita seguimiento para el próximo día o turno.",
+                  "items": [
+                    "Antes de finalizar la jornada, revisar si quedaron tareas críticas sin resolver.",
+                    "Confirmar si los sectores dejaron sus espacios en condiciones de cierre según su responsabilidad.",
+                    "Verificar si algún equipo, cámara o insumo requiere aviso para el día siguiente.",
+                    "Dejar informados faltantes importantes, problemas de producción o novedades administrativas.",
+                    "Si corresponde, coordinar con el último referente del sector el apagado de máquinas, aire y orden general."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                }
+              ]
+            },
+            {
+              "id": "paso-a-paso",
+              "badge": "Próximamente",
+              "titulo": "Paso a paso operativo",
+              "descripcion": "Instrucciones detalladas por tarea",
+              "disponible": false,
+              "bloques": []
+            },
+            {
+              "id": "manual-rol",
+              "badge": "Próximamente",
+              "titulo": "Manual del rol",
+              "descripcion": "Responsabilidades, autoridad e indicadores",
+              "disponible": false,
+              "bloques": []
+            }
+          ]
+        },
+        {
+          "id": "productor-facturas",
+          "label": "Productor de Facturas",
+          "sub": "Línea de Facturas",
+          "documentos": [
+            {
+              "id": "tareas-diarias",
+              "badge": "Tareas del día",
+              "titulo": "Listado de tareas diarias",
+              "descripcion": "Rutina por momentos del día",
+              "disponible": true,
+              "bloques": [
+                {
+                  "titulo": "Regla del rol",
+                  "intro": "En Facturas, lo que se produce hoy no siempre se vende hoy. Gran parte del trabajo consiste en anticipar producción para los próximos días.",
+                  "items": [
+                    "Sostener stock de producto en proceso, especialmente medialunas, para que Hornos pueda retirar, fermentar, cocinar y abastecer venta sin cortar la continuidad."
+                  ],
+                  "critico": "Si no se anticipa producción, falta producto para que Hornos fermente, cocine y abastezca venta.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "A · Ingreso y preparación personal",
+                  "intro": "Entrar al sector en condiciones de trabajo y evitar desorden por objetos personales.",
+                  "items": [
+                    "Fichar ingreso en el horario correspondiente.",
+                    "Cambiarse antes de comenzar la jornada productiva.",
+                    "Guardar pertenencias personales en el locker.",
+                    "No dejar mochilas, ropa, vasos u objetos personales en el sector de producción ni fuera de lugar.",
+                    "Ingresar al área de facturas y revisar visualmente el estado de la estación."
+                  ],
+                  "critico": "Si los objetos personales quedan en producción, se pierde orden, higiene y control del espacio.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "B · Apertura de estación de trabajo",
+                  "intro": "Liberar y preparar el espacio para producir sin trabar a sectores que comparten elementos o áreas.",
+                  "items": [
+                    "Revisar qué quedó preparado del día anterior: almíbar, masa, bastones, rolls u otros productos en proceso.",
+                    "Si hay almíbar hecho del día anterior, pasarlo a baldes o recipientes definidos.",
+                    "Liberar ollas, baldes o elementos que puedan estar ocupando espacio compartido.",
+                    "Verificar que estén disponibles herramientas básicas para la tarea: mesa, utensilios, bandejas, carros, recipientes e insumos.",
+                    "Confirmar si hay productos que deben salir de cámara para continuar el proceso."
+                  ],
+                  "critico": "Si el espacio no se libera al inicio, se traba la producción propia y también se molesta a otros sectores que usan mesas, ollas o anafes.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "C · Revisión inicial de stock y producción en proceso",
+                  "intro": "Saber con qué stock se cuenta antes de empezar a producir y evitar quedarse corto en los próximos días.",
+                  "items": [
+                    "Revisar los carros disponibles de facturas y medialunas.",
+                    "Revisar bastones preparados de jornadas anteriores.",
+                    "Dar vuelta los bastones del día anterior cuando corresponda dentro del proceso.",
+                    "Verificar si hay producto suficiente para que Hornos pueda retirar y continuar con fermentación / cocción.",
+                    "Para fines de semana o días de mayor venta, anticipar mayor stock en los días previos."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "D · Lógica del ciclo productivo",
+                  "intro": "La producción de Facturas funciona por anticipación, no solo por necesidad del día. La línea trabaja con un ciclo de varios días.",
+                  "items": [
+                    "Día 1 — Amasado y armado de bastones con manteca. Dejar base preparada en frío.",
+                    "Día 2 — Reposo en cámara y reducción / división de bastones según necesidad. Continuar proceso sin cortar frío.",
+                    "Día 3 — Laminado, armado, enrollado, estibado y guardado. Dejar producto listo para que Hornos retire y continúe."
+                  ],
+                  "critico": "Si no se anticipa producción, el problema aparece días después: falta producto para que Hornos fermente, cocine y abastezca venta.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "E · Organización inicial del trabajo",
+                  "intro": "Definir qué se hace primero y cómo se reparte la tarea dentro del equipo de Facturas.",
+                  "items": [
+                    "Priorizar medialunas, ya que son el producto base de mayor continuidad.",
+                    "Revisar si hay rolls para rellenar o decorar.",
+                    "Revisar si corresponde producir medialunas de grasa, facturas surtidas, chips, croissants u otros productos menos frecuentes.",
+                    "Coordinar con compañeros del sector quién amasa, quién lamina, quién enrolla, quién estiba y quién prepara insumos.",
+                    "Si hay un operario cumpliendo apoyo en otro sector, ajustar la carga de trabajo con los presentes."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "F · Producción base de facturas",
+                  "intro": "Ejecutar el flujo principal de producción manteniendo continuidad, orden y producto en proceso controlado.",
+                  "items": [
+                    "Retirar materia prima desde las cámaras según necesidad.",
+                    "Preparar insumos en la mesa antes de arrancar.",
+                    "Realizar amasado cuando corresponda dentro del ciclo. Referencia relevada: alrededor de media mañana.",
+                    "Armar bastones con manteca y dejarlos en frío.",
+                    "Reducir o dividir bastones cuando corresponda por etapa.",
+                    "Laminar la masa según necesidad del día y disponibilidad del operario especializado.",
+                    "Enrollar medialunas.",
+                    "Armar facturas surtidas cuando corresponda.",
+                    "Estibar producto en bandejas o carros.",
+                    "Guardar en cámara respetando orden y ubicación para que el proceso continúe."
+                  ],
+                  "critico": "El amasado y el laminado dependen mucho de experiencia. Si no quedan documentados, el reemplazo del puesto se vuelve difícil.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "G · Producción continua del día",
+                  "intro": "Sostener las tareas que se repiten durante la jornada y que aseguran continuidad de venta.",
+                  "items": [
+                    "Producir medialunas durante la jornada según necesidad de stock.",
+                    "Rellenar y decorar rolls cuando salen dentro de la secuencia.",
+                    "Preparar almíbar en la franja definida. Referencia relevada: entre 13:00 y 15:00.",
+                    "Antes de usar el anafe para almíbar, verificar que no esté siendo usado por otro sector."
+                  ],
+                  "critico": "Si se espera a quedarse sin insumo para avisar, se corta la producción. El aviso debe hacerse antes del quiebre.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "H · Relación con Hornos y otros sectores",
+                  "intro": "Dejar producto listo para que Hornos pueda retirarlo y continuar el circuito.",
+                  "items": [
+                    "Dejar medialunas, facturas o productos armados estibados y listos para retiro de Hornos.",
+                    "Mantener el producto identificado y ubicado en cámara de forma clara.",
+                    "Tener presente que el rol no manipula hornos ni define la cocción.",
+                    "Si Hornos informa faltantes o necesidad de producto, revisar stock y avisar si se puede responder."
+                  ],
+                  "critico": "Si el producto no se ubica bien, otro sector puede no encontrarlo o tomar algo que no corresponde.",
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "I · Orden y limpieza durante la jornada",
+                  "intro": "Mantener el sector usable, limpio y compartible durante toda la producción.",
+                  "items": [
+                    "Mantener mesa de trabajo ordenada mientras se produce.",
+                    "Retirar restos de masa, harina o insumos cuando terminan tareas parciales.",
+                    "Limpiar herramientas antes de cambiarlas de uso o guardarlas.",
+                    "No dejar recipientes, baldes u ollas ocupando espacio si ya no se usan.",
+                    "Mantener cámara y carros ordenados para que Hornos o compañeros encuentren el producto.",
+                    "Compartir espacios con otros sectores sin bloquear anafes, mesas o cámaras."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                },
+                {
+                  "titulo": "J · Cierre de jornada",
+                  "intro": "Dejar el sector ordenado, seguro y preparado para la continuidad del día siguiente.",
+                  "items": [
+                    "Finalizar o informar tareas que quedaron pendientes.",
+                    "Apagar anafes u otros equipos utilizados durante la jornada.",
+                    "Apagar luces y aire si corresponde según cierre del sector.",
+                    "Revisar que no quede nada encendido.",
+                    "Dejar insumos preparados para el día siguiente cuando haya tiempo.",
+                    "Guardar insumos preparados en cámara cuando corresponda.",
+                    "Fichar salida."
+                  ],
+                  "critico": null,
+                  "aconfirmar": null
+                }
+              ]
+            },
+            {
+              "id": "paso-a-paso",
+              "badge": "Próximamente",
+              "titulo": "Paso a paso operativo",
+              "descripcion": "Instrucciones detalladas por tarea",
+              "disponible": false,
+              "bloques": []
+            },
+            {
+              "id": "manual-rol",
+              "badge": "Próximamente",
+              "titulo": "Manual del rol",
+              "descripcion": "Responsabilidades, autoridad e indicadores",
+              "disponible": false,
+              "bloques": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

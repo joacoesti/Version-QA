@@ -1,0 +1,337 @@
+{
+  "version": "v3.2-recuperado-desde-index-original",
+  "direccion": [
+    {
+      "icono": "👨‍💼",
+      "nombre": "Lucas",
+      "cargo": "Director Administrativo",
+      "detalle": "Liderazgo financiero, gestión de procesos y visión administrativa central.",
+      "destacado": false,
+      "equipo": false
+    },
+    {
+      "icono": "👨‍💼",
+      "nombre": "Hernán",
+      "cargo": "Director de Operaciones",
+      "detalle": "Toma de decisiones comerciales y supervisión de la operatoria general del supermercado.",
+      "destacado": false,
+      "equipo": false
+    },
+    {
+      "icono": "👨‍💼",
+      "nombre": "Juan",
+      "cargo": "Socio de Expansión",
+      "detalle": "Desarrollo y planificación de la futura franquicia.",
+      "destacado": false,
+      "equipo": false
+    }
+  ],
+  "bloques": [
+    {
+      "clase": "b-admin",
+      "titulo": "📋 Administración y Control",
+      "roles": [
+        {
+          "icono": "👤",
+          "nombre": "Gerardo",
+          "cargo": "Jefe de Administración",
+          "detalle": "Coordinación de las áreas de soporte. Reporta a Lucas.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🔄",
+          "nombre": "Joaco",
+          "cargo": "Analista de Procesos",
+          "detalle": "Optimización de flujos, estandarización de SOPs y diagnóstico operativo. Reporta a Gerardo.",
+          "destacado": true,
+          "equipo": false
+        },
+        {
+          "icono": "📞",
+          "nombre": "Micaela y Abril",
+          "cargo": "Proveedores",
+          "detalle": "Gestión de compras y relación con abastecedores externos.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🧮",
+          "nombre": "Cristian",
+          "cargo": "Contabilidad",
+          "detalle": "Gestión de registros contables y financieros.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "👥",
+          "nombre": "Vanina",
+          "cargo": "Recursos Humanos",
+          "detalle": "Gestión de personal y legajos.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🛡️",
+          "nombre": "Sonia",
+          "cargo": "Control",
+          "detalle": "Auditoría y cumplimiento normativo.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "📊",
+          "nombre": "Glenda",
+          "cargo": "Encargada de Precios y Costos",
+          "detalle": "Definición de márgenes y análisis de rentabilidad. Equipo: Sol y Elena.",
+          "destacado": false,
+          "equipo": false
+        }
+      ]
+    },
+    {
+      "clase": "b-prod",
+      "titulo": "⚙️ Producción",
+      "roles": [
+        {
+          "icono": "👨‍🍳",
+          "nombre": "Diego O.",
+          "cargo": "Jefe de Cocina",
+          "detalle": "Apertura técnica, encendido de equipos críticos y coordinación general del sector.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🧑‍🍳",
+          "nombre": "Diego G.",
+          "cargo": "Auxiliar del Jefe",
+          "detalle": "Continuidad y mise en place crítico para el día siguiente.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "👥",
+          "nombre": "Equipo de Cocina",
+          "cargo": "9 ayudantes",
+          "detalle": "Especialistas: Frituras, Ensaladas y Apoyo, Masas y Envasado, Producción General, Apoyo Transversal, Continuidad, Cruce y Apoyo.",
+          "destacado": false,
+          "equipo": true
+        },
+        {
+          "icono": "📦",
+          "nombre": "Carla",
+          "cargo": "Responsable de Abastecimiento",
+          "detalle": "Nexo entre Cocina y Salón. Releva stock de congelados, gestiona etiquetas y asegura la exhibición.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🥖",
+          "nombre": "Marcelo",
+          "cargo": "Encargado de Panificadora",
+          "detalle": "Planificación de producción, gestión de materia prima y coordinación del equipo técnico.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "👥",
+          "nombre": "Equipo Técnico",
+          "cargo": "13 personas",
+          "detalle": "4 Pasteleros, 4 Panaderos, 3 Factureros y 2 Horneros (encargados del Carro Inicial).",
+          "destacado": false,
+          "equipo": true
+        }
+      ]
+    },
+    {
+      "clase": "b-salon",
+      "titulo": "🛒 Puntos de venta y atención",
+      "roles": [
+        {
+          "icono": "🛡️",
+          "nombre": "Lorena y José Luis",
+          "cargo": "Supervisión de Cajas",
+          "detalle": "Gestión de la línea de cajas, atención al cliente y supervisión del equipo.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "💳",
+          "nombre": "Cajeros",
+          "cargo": "15 cajeros + 3 auxiliares",
+          "detalle": "Atención al cliente, cobranza, gestión de decomisos en sistema.",
+          "destacado": false,
+          "equipo": true
+        },
+        {
+          "icono": "📋",
+          "nombre": "Roxana",
+          "cargo": "Encargada de Salón",
+          "detalle": "Reposición de góndolas y mantenimiento de la imagen del salón.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "👥",
+          "nombre": "Repositores",
+          "cargo": "7 personas",
+          "detalle": "6 repositores + 1 lácteos.",
+          "destacado": false,
+          "equipo": true
+        },
+        {
+          "icono": "🥩",
+          "nombre": "Gustavo y Cristian F.",
+          "cargo": "Encargados de Carnicería",
+          "detalle": "Control de calidad y desposte con un equipo de 4 carniceros.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🧀",
+          "nombre": "Silvia",
+          "cargo": "Encargada de Fiambrería",
+          "detalle": "Definición de la comanda diaria para cocina y atención. 3 empleados.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🥬",
+          "nombre": "Fernando",
+          "cargo": "Encargado de Verdulería",
+          "detalle": "Compras de frescos y gestión de 4 verduleros.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🍞",
+          "nombre": "Fabiana",
+          "cargo": "Encargada de Panadería Salón",
+          "detalle": "Control de calidad del producto horneado y venta. Equipo: Facundo y Oriana.",
+          "destacado": false,
+          "equipo": false
+        }
+      ]
+    },
+    {
+      "clase": "b-soporte",
+      "titulo": "🚚 Soporte logístico",
+      "roles": [
+        {
+          "icono": "📦",
+          "nombre": "Mariano",
+          "cargo": "Encargado de Depósito",
+          "detalle": "Coordinación de recepción de mercadería con: 1 chofer, 2 operarios de depósito y 2 operarios de stock.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🔧",
+          "nombre": "Juan y Jorge",
+          "cargo": "Mantenimiento general",
+          "detalle": "Cuidado edilicio y técnico de equipos.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "📥",
+          "nombre": "Recepción",
+          "cargo": "2 personas",
+          "detalle": "Sandra y Erika · recepción de mercadería y proveedores.",
+          "destacado": false,
+          "equipo": true
+        }
+      ]
+    },
+    {
+      "clase": "b-prod",
+      "titulo": "🏭 Producción y Elaboración",
+      "roles": [
+        {
+          "icono": "🍳",
+          "nombre": "Diego",
+          "cargo": "Jefe de Cocina",
+          "detalle": "Responsable máximo del sector Cocina, toma de decisiones operativas y control de calidad.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🛒",
+          "nombre": "Carla",
+          "cargo": "Abastecimiento",
+          "detalle": "Gestión de stock, reposición a góndolas, islas y control de productos elaborados.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🥖",
+          "nombre": "Jefe Operativo de Panificadora",
+          "cargo": "Panificadora",
+          "detalle": "Coordinación operativa de Panificadora, pedidos, líneas de producción, insumos, desvíos y decomisos.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "👥",
+          "nombre": "Equipo de Cocina",
+          "cargo": "Auxiliares / Ayudantes",
+          "detalle": "Ejecución de mise en place, producción, fraccionado, empaquetado, limpieza y soporte operativo.",
+          "destacado": false,
+          "equipo": true
+        }
+      ]
+    },
+    {
+      "clase": "b-salon",
+      "titulo": "🏪 Salón y Atención Comercial",
+      "roles": [
+        {
+          "icono": "🥩",
+          "nombre": "Silvia",
+          "cargo": "Fiambrería",
+          "detalle": "Realiza pedidos diarios a Cocina mediante comanda y funciona como punto de coordinación comercial para productos del día.",
+          "destacado": false,
+          "equipo": false
+        },
+        {
+          "icono": "🥖",
+          "nombre": "Panadería de Salón",
+          "cargo": "Filtro comercial",
+          "detalle": "Recibe producto, observa disponibilidad comercial y puede informar productos no aptos para venta.",
+          "destacado": false,
+          "equipo": true
+        },
+        {
+          "icono": "💳",
+          "nombre": "Línea de Cajas",
+          "cargo": "Registro / decomisos",
+          "detalle": "Interviene en la carga o registro de decomisos cuando corresponde.",
+          "destacado": false,
+          "equipo": true
+        }
+      ]
+    },
+    {
+      "clase": "b-soporte",
+      "titulo": "🛠️ Soporte Operativo",
+      "roles": [
+        {
+          "icono": "📦",
+          "nombre": "Depósito",
+          "cargo": "Abastecimiento interno",
+          "detalle": "Entrega y control de insumos o mercadería interna solicitada por sectores productivos.",
+          "destacado": false,
+          "equipo": true
+        },
+        {
+          "icono": "🚚",
+          "nombre": "Proveedores externos",
+          "cargo": "Abastecimiento externo",
+          "detalle": "Suministro de insumos y productos necesarios para la operación.",
+          "destacado": false,
+          "equipo": true
+        }
+      ]
+    }
+  ]
+}

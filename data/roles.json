@@ -1,0 +1,111 @@
+[
+  {
+    "id": "encargado-abastecimiento",
+    "sectorId": "abastecimiento",
+    "label": "Encargado/a de Abastecimiento",
+    "sub": "Turno completo",
+    "documentos": [
+      "tareas-diarias",
+      "paso-a-paso",
+      "manual-rol"
+    ],
+    "puesto": "Encargado/a de Abastecimiento",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Jefe de Cocina / Operaciones",
+    "nivel": "Encargado"
+  },
+  {
+    "id": "auxiliar-abastecimiento",
+    "sectorId": "abastecimiento",
+    "label": "Auxiliar de Abastecimiento",
+    "sub": "Reemplazo / soporte",
+    "documentos": [
+      "tareas-diarias"
+    ],
+    "puesto": "Auxiliar de Abastecimiento",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Encargado/a de Abastecimiento",
+    "nivel": "Auxiliar"
+  },
+  {
+    "id": "jefe-cocina",
+    "sectorId": "cocina",
+    "label": "Jefe de Cocina",
+    "sub": "Turno mañana",
+    "documentos": [
+      "tareas-diarias",
+      "paso-a-paso",
+      "manual-rol"
+    ],
+    "puesto": "Jefe de Cocina",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Gerencia / Dirección Operativa",
+    "nivel": "Jefe"
+  },
+  {
+    "id": "auxiliar-jefe-cocina",
+    "sectorId": "cocina",
+    "label": "Auxiliar del Jefe de Cocina",
+    "sub": "Turno tarde",
+    "documentos": [
+      "tareas-diarias",
+      "paso-a-paso",
+      "manual-rol"
+    ],
+    "puesto": "Auxiliar del Jefe de Cocina",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Jefe de Cocina",
+    "nivel": "Auxiliar"
+  },
+  {
+    "id": "ayudante-cocina",
+    "sectorId": "cocina",
+    "label": "Ayudante de Cocina",
+    "sub": "Por sector asignado",
+    "documentos": [
+      "tareas-diarias",
+      "paso-a-paso"
+    ],
+    "puesto": "Ayudante de Cocina",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Pendiente de definición",
+    "nivel": "Rol"
+  },
+  {
+    "id": "jefe-operativo-panificadora",
+    "sectorId": "panificadora",
+    "label": "Jefe Operativo de Panificadora",
+    "sub": "Turno mañana · 06:00",
+    "documentos": [
+      "tareas-diarias",
+      "paso-a-paso",
+      "manual-rol"
+    ],
+    "puesto": "Jefe Operativo de Panificadora",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Gerencia / Dirección Operativa",
+    "nivel": "Jefe Operativo"
+  },
+  {
+    "id": "productor-facturas",
+    "sectorId": "panificadora",
+    "label": "Productor de Facturas",
+    "sub": "Línea de Facturas",
+    "documentos": [
+      "tareas-diarias",
+      "paso-a-paso",
+      "manual-rol"
+    ],
+    "puesto": "Productor de Facturas",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Jefe Operativo Panificadora",
+    "nivel": "Producción"
+  }
+]

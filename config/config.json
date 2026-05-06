@@ -1,0 +1,16 @@
+{
+  "empresa": "UNISOL",
+  "clave": "unisol2026",
+  "logURL": "https://script.google.com/macros/s/AKfycbxZMfjqBLYuA0-GqZHFu3o_bIWtbCrfwO1ovIOnn830RiVclHq4q0Z7onyW5wyTxbtJcw/exec",
+  "assets": {
+    "logo": "assets/logo.png",
+    "planillas": "assets/planillas.xlsx"
+  },
+  "data": {
+    "sectores": "data/sectores.json",
+    "roles": "data/roles.json",
+    "documentos": "data/documentos-index.json",
+    "jerarquia": "data/jerarquia.json",
+    "organigrama": "data/organigrama.json"
+  }
+}

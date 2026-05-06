@@ -1,0 +1,36 @@
+[
+  {
+    "id": "abastecimiento",
+    "label": "Abastecimiento",
+    "icono": "🛒",
+    "roles": [
+      "encargado-abastecimiento",
+      "auxiliar-abastecimiento"
+    ]
+  },
+  {
+    "id": "cocina",
+    "label": "Cocina",
+    "icono": "🍳",
+    "roles": [
+      "jefe-cocina",
+      "auxiliar-jefe-cocina",
+      "ayudante-cocina"
+    ]
+  },
+  {
+    "id": "fiambreria",
+    "label": "Fiambrería",
+    "icono": "🥩",
+    "roles": []
+  },
+  {
+    "id": "panificadora",
+    "label": "Panificadora",
+    "icono": "🥖",
+    "roles": [
+      "jefe-operativo-panificadora",
+      "productor-facturas"
+    ]
+  }
+]
