@@ -119,6 +119,13 @@ async function renderDocument(root, docId) {
   try {
     const md = await loadMarkdown(d.path);
     root.innerHTML = `<section class="screen active"><div class="content-block markdown">${mdToHTML(md)}</div></section>`;
+    root.querySelectorAll(".doc-link").forEach(a => {
+      a.addEventListener("click", function(e){
+        e.preventDefault();
+        const id = this.getAttribute("data-doc-id");
+        if (id) openDoc(id);
+      });
+    });
   } catch(e) {
     root.innerHTML = `<section class="screen active"><div class="coming-card"><div class="coming-icon">⚠️</div><div class="coming-title">No se pudo abrir el documento</div><div class="coming-desc">${e.message}</div></div></section>`;
   }

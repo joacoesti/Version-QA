@@ -6,6 +6,7 @@ function escapeHTML(s) {
 
 function inlineMD(s) {
   return escapeHTML(s)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="javascript:void(0)" class="doc-link" data-doc-id="$2">$1</a>')
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>");
 }

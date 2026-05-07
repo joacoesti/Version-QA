@@ -6,8 +6,7 @@
     "sub": "Rol general · tareas cruzadas",
     "documentos": [
       "tareas-diarias",
-      "paso-a-paso",
-      "manual-rol"
+      "sop"
     ],
     "puesto": "Abastecimiento",
     "persona": "Pendiente de asignación",
@@ -22,8 +21,7 @@
     "sub": "Turno mañana",
     "documentos": [
       "tareas-diarias",
-      "paso-a-paso",
-      "manual-rol"
+      "sop"
     ],
     "puesto": "Jefe de Cocina",
     "persona": "Pendiente de asignación",
@@ -38,8 +36,7 @@
     "sub": "Turno tarde",
     "documentos": [
       "tareas-diarias",
-      "paso-a-paso",
-      "manual-rol"
+      "sop"
     ],
     "puesto": "Auxiliar del Jefe de Cocina",
     "persona": "Pendiente de asignación",
@@ -53,8 +50,7 @@
     "label": "Ayudante de Cocina",
     "sub": "Por sector asignado",
     "documentos": [
-      "tareas-diarias",
-      "paso-a-paso"
+      "tareas-diarias"
     ],
     "puesto": "Ayudante de Cocina",
     "persona": "Pendiente de asignación",
@@ -68,9 +64,9 @@
     "label": "Jefe Operativo de Panificadora",
     "sub": "Turno mañana · 06:00",
     "documentos": [
+      "sop",
       "tareas-diarias",
-      "paso-a-paso",
-      "manual-rol"
+      "anexo"
     ],
     "puesto": "Jefe Operativo de Panificadora",
     "persona": "Pendiente de asignación",
@@ -85,8 +81,7 @@
     "sub": "Línea de Facturas",
     "documentos": [
       "tareas-diarias",
-      "paso-a-paso",
-      "manual-rol"
+      "sop"
     ],
     "puesto": "Productor de Facturas",
     "persona": "Pendiente de asignación",

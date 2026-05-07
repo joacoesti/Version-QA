@@ -12,25 +12,13 @@
     "path": "docs/abastecimiento/encargado-abastecimiento-tareas-diarias.md"
   },
   {
-    "id": "abastecimiento-paso-a-paso",
-    "documentoId": "paso-a-paso",
+    "id": "abastecimiento-sop",
+    "documentoId": "sop",
     "sectorId": "abastecimiento",
     "roleId": "abastecimiento",
-    "badge": "Próximamente",
-    "titulo": "Paso a paso operativo",
-    "descripcion": "Instrucciones detalladas por tarea",
-    "disponible": false,
-    "tipo": "markdown",
-    "path": null
-  },
-  {
-    "id": "abastecimiento-manual-rol",
-    "documentoId": "manual-rol",
-    "sectorId": "abastecimiento",
-    "roleId": "abastecimiento",
-    "badge": "Próximamente",
-    "titulo": "Manual del rol",
-    "descripcion": "Responsabilidades, autoridad e indicadores",
+    "badge": "SOP",
+    "titulo": "SOP del rol",
+    "descripcion": "Procedimiento operativo: propósito, alcance, regla, controles y responsabilidades",
     "disponible": false,
     "tipo": "markdown",
     "path": null
@@ -48,25 +36,13 @@
     "path": "docs/cocina/jefe-cocina-tareas-diarias.md"
   },
   {
-    "id": "jefe-cocina-paso-a-paso",
-    "documentoId": "paso-a-paso",
+    "id": "jefe-cocina-sop",
+    "documentoId": "sop",
     "sectorId": "cocina",
     "roleId": "jefe-cocina",
-    "badge": "Próximamente",
-    "titulo": "Paso a paso operativo",
-    "descripcion": "Instrucciones detalladas por tarea",
-    "disponible": false,
-    "tipo": "markdown",
-    "path": null
-  },
-  {
-    "id": "jefe-cocina-manual-rol",
-    "documentoId": "manual-rol",
-    "sectorId": "cocina",
-    "roleId": "jefe-cocina",
-    "badge": "Próximamente",
-    "titulo": "Manual del rol",
-    "descripcion": "Responsabilidades, autoridad e indicadores",
+    "badge": "SOP",
+    "titulo": "SOP del rol",
+    "descripcion": "Procedimiento operativo: propósito, alcance, regla, controles y responsabilidades",
     "disponible": false,
     "tipo": "markdown",
     "path": null
@@ -84,25 +60,13 @@
     "path": "docs/cocina/auxiliar-jefe-cocina-tareas-diarias.md"
   },
   {
-    "id": "auxiliar-jefe-cocina-paso-a-paso",
-    "documentoId": "paso-a-paso",
+    "id": "auxiliar-jefe-cocina-sop",
+    "documentoId": "sop",
     "sectorId": "cocina",
     "roleId": "auxiliar-jefe-cocina",
-    "badge": "Próximamente",
-    "titulo": "Paso a paso operativo",
-    "descripcion": "Instrucciones detalladas por tarea",
-    "disponible": false,
-    "tipo": "markdown",
-    "path": null
-  },
-  {
-    "id": "auxiliar-jefe-cocina-manual-rol",
-    "documentoId": "manual-rol",
-    "sectorId": "cocina",
-    "roleId": "auxiliar-jefe-cocina",
-    "badge": "Próximamente",
-    "titulo": "Manual del rol",
-    "descripcion": "Responsabilidades, autoridad e indicadores",
+    "badge": "SOP",
+    "titulo": "SOP del rol",
+    "descripcion": "Procedimiento operativo: propósito, alcance, regla, controles y responsabilidades",
     "disponible": false,
     "tipo": "markdown",
     "path": null
@@ -120,18 +84,6 @@
     "path": "docs/cocina/ayudante-cocina-tareas-diarias.md"
   },
   {
-    "id": "ayudante-cocina-paso-a-paso",
-    "documentoId": "paso-a-paso",
-    "sectorId": "cocina",
-    "roleId": "ayudante-cocina",
-    "badge": "Próximamente",
-    "titulo": "Paso a paso operativo",
-    "descripcion": "Instrucciones detalladas por tarea",
-    "disponible": false,
-    "tipo": "markdown",
-    "path": null
-  },
-  {
     "id": "jefe-operativo-panificadora-tareas-diarias",
     "documentoId": "tareas-diarias",
     "sectorId": "panificadora",
@@ -144,28 +96,52 @@
     "path": "docs/panificadora/jefe-operativo-panificadora-tareas-diarias.md"
   },
   {
-    "id": "jefe-operativo-panificadora-paso-a-paso",
-    "documentoId": "paso-a-paso",
+    "id": "jefe-operativo-panificadora-sop",
+    "documentoId": "sop",
     "sectorId": "panificadora",
     "roleId": "jefe-operativo-panificadora",
-    "badge": "Próximamente",
-    "titulo": "Paso a paso operativo",
-    "descripcion": "Instrucciones detalladas por tarea",
-    "disponible": false,
+    "badge": "SOP",
+    "titulo": "SOP del rol",
+    "descripcion": "Procedimiento operativo del rol con cross-links a anexos",
+    "disponible": true,
     "tipo": "markdown",
-    "path": null
+    "path": "docs/panificadora/jefe-operativo-panificadora-sop.md"
   },
   {
-    "id": "jefe-operativo-panificadora-manual-rol",
-    "documentoId": "manual-rol",
+    "id": "jefe-operativo-panificadora-anexo-ingreso-sector",
+    "documentoId": "anexo",
     "sectorId": "panificadora",
     "roleId": "jefe-operativo-panificadora",
-    "badge": "Próximamente",
-    "titulo": "Manual del rol",
-    "descripcion": "Responsabilidades, autoridad e indicadores",
-    "disponible": false,
+    "badge": "Anexo",
+    "titulo": "Anexo 01 · Ingreso al sector",
+    "descripcion": "Verificación de condiciones generales al ingresar al sector",
+    "disponible": true,
     "tipo": "markdown",
-    "path": null
+    "path": "docs/panificadora/anexos/jefe-operativo-panificadora-anexo-ingreso-sector.md"
+  },
+  {
+    "id": "jefe-operativo-panificadora-anexo-camaras-frio",
+    "documentoId": "anexo",
+    "sectorId": "panificadora",
+    "roleId": "jefe-operativo-panificadora",
+    "badge": "Anexo",
+    "titulo": "Anexo 02 · Cámaras de frío",
+    "descripcion": "Temperatura, guardado, rotación y desvíos en cámaras",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/panificadora/anexos/jefe-operativo-panificadora-anexo-camaras-frio.md"
+  },
+  {
+    "id": "jefe-operativo-panificadora-anexo-pedidos-clientes",
+    "documentoId": "anexo",
+    "sectorId": "panificadora",
+    "roleId": "jefe-operativo-panificadora",
+    "badge": "Anexo",
+    "titulo": "Anexo 03 · Gestión de pedidos de clientes",
+    "descripcion": "Recepción, registro, traducción a producción y entrega",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/panificadora/anexos/jefe-operativo-panificadora-anexo-pedidos-clientes.md"
   },
   {
     "id": "productor-facturas-tareas-diarias",
@@ -180,25 +156,13 @@
     "path": "docs/panificadora/productor-facturas-tareas-diarias.md"
   },
   {
-    "id": "productor-facturas-paso-a-paso",
-    "documentoId": "paso-a-paso",
+    "id": "productor-facturas-sop",
+    "documentoId": "sop",
     "sectorId": "panificadora",
     "roleId": "productor-facturas",
-    "badge": "Próximamente",
-    "titulo": "Paso a paso operativo",
-    "descripcion": "Instrucciones detalladas por tarea",
-    "disponible": false,
-    "tipo": "markdown",
-    "path": null
-  },
-  {
-    "id": "productor-facturas-manual-rol",
-    "documentoId": "manual-rol",
-    "sectorId": "panificadora",
-    "roleId": "productor-facturas",
-    "badge": "Próximamente",
-    "titulo": "Manual del rol",
-    "descripcion": "Responsabilidades, autoridad e indicadores",
+    "badge": "SOP",
+    "titulo": "SOP del rol",
+    "descripcion": "Procedimiento operativo: propósito, alcance, regla, controles y responsabilidades",
     "disponible": false,
     "tipo": "markdown",
     "path": null
