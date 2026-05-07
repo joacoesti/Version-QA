@@ -2,7 +2,7 @@
 
 > ↩ [Volver al SOP · sección 5.1](jefe-operativo-panificadora-sop)
 
-### 6.1 Anexo 01 – 5.1 Ingresar al sector y verificar condiciones generales de orden
+## 6.1 Anexo 01 – 5.1 Ingresar al sector y verificar condiciones generales de orden
 
 El Jefe Operativo debe revisar el estado del sector completo y no solo el punto donde se está produciendo. La devolución de la devolución operativa identifica cuatro frentes: hornos, pastelería, facturas y panificadora. La revisión debe mirar orden, limpieza, pasillos, estantes, materias primas sueltas, productos en proceso y condiciones de trabajo.
 

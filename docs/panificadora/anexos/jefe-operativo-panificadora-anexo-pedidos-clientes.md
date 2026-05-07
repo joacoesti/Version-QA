@@ -2,23 +2,23 @@
 
 > ↩ [Volver al SOP · sección 5.3](jefe-operativo-panificadora-sop)
 
-### 6.3 Anexo 03 – 5.3 Gestión de pedidos de clientes
+## 6.3 Anexo 03 – 5.3 Gestión de pedidos de clientes
 
 Criterio del anexo: describir cómo ingresa, se interpreta, se comunica y se controla el pedido, prestando especial atención a canales, responsables, planillas, copias, horarios, desvíos y diferenciación entre Panadería y Facturas.
 
-#### 6.3.1 Objetivo operativo
+### 6.3.1 Objetivo operativo
 
 Asegurar que los pedidos de clientes internos y externos sean recibidos, interpretados y transformados en producción sin pérdida de información. El proceso debe permitir que cada sector entienda qué debe producir, para qué cliente, en qué cantidad y antes de qué horario.
 
 El objetivo no es solamente recibir un pedido, sino convertirlo en una instrucción operativa ejecutable. Cuando este paso queda incompleto, el sector puede producir correctamente desde el punto de vista técnico pero fallar en cantidad, prioridad, cliente o cumplimiento horario.
 
-#### 6.3.2 Alcance
+### 6.3.2 Alcance
 
 Este procedimiento alcanza los pedidos vinculados a Milena, Jardín, Futuro y UNISOL, incluyendo pedidos externos canalizados por la Encargada de Recepción y pedidos internos generados por Panadería de Salón.
 
 El anexo cubre recepción, identificación del canal, registro disponible, bajada a producción, preparación por cliente, horarios de entrega y tratamiento de desvíos. No desarrolla todavía la logística posterior del camión ni el circuito administrativo de facturación, salvo cuando impacta directamente en trazabilidad del pedido.
 
-#### 6.3.3 Clientes, canales y responsables relevados
+### 6.3.3 Clientes, canales y responsables relevados
 
 | Cliente / boca | Canal relevado | Responsable de entrega / canalización | Observación operativa |
 | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ El anexo cubre recepción, identificación del canal, registro disponible, bajad
 
 Punto de fuga: los pedidos no ingresan por un único canal ni bajo un formato homogéneo. Esto aumenta el riesgo de pérdida de cantidades, duplicación de información o falta de trazabilidad ante reclamos.
 
-#### 6.3.4 Distinción operativa crítica: Panadería y Facturas
+### 6.3.4 Distinción operativa crítica: Panadería y Facturas
 
 En este punto es necesario separar dos lógicas operativas que conviven dentro de Panificadora pero no funcionan igual. Panadería trabaja principalmente contra pedido; Facturas trabaja principalmente por stock. Esta diferencia debe quedar explícita para evitar diseñar un único procedimiento que no represente la realidad.
 
@@ -42,7 +42,7 @@ En Panadería, el pedido define la producción de la jornada y se materializa en
 
 Punto crítico: si no se diferencia Panificadora por pedido de Facturas por stock, el documento puede inducir errores de gestión. El Jefe Operativo debe controlar pedidos en Panadería y nivel de stock en Facturas con criterios distintos.
 
-#### 6.3.5 Secuencia operativa AS-IS
+### 6.3.5 Secuencia operativa AS-IS
 
 #### 6.3.5.1 Recepción del pedido
 
@@ -137,7 +137,7 @@ Cuando aparece una demora, el circuito actual indica que se informa a la Encarga
 
 El relevamiento confirma que los sábados se produce considerando cobertura para domingo y lunes. Este caso debe quedar documentado como condición especial porque modifica la lectura diaria del pedido y la planificación de stock.
 
-#### 6.3.6 Gestión de desvíos
+### 6.3.6 Gestión de desvíos
 
 | Desvío | Situación relevada | Acción actual | Acción a estandarizar |
 | --- | --- | --- | --- |
@@ -146,7 +146,7 @@ El relevamiento confirma que los sábados se produce considerando cobertura para
 
 Punto de fuga: el desvío gestionado verbalmente resuelve la urgencia del día, pero no deja aprendizaje ni trazabilidad para reducir recurrencia.
 
-#### 6.3.7 Control de cumplimiento
+### 6.3.7 Control de cumplimiento
 
 Actualmente el cumplimiento se controla de manera práctica mediante el armado de carros. Para elevar el nivel de control, el pedido no debería cerrarse solo porque el carro está preparado, sino porque fue verificado contra una lista o planilla.
 

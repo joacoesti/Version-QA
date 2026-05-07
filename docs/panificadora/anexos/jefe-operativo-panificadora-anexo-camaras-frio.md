@@ -2,23 +2,23 @@
 
 > ↩ [Volver al SOP · sección 5.2](jefe-operativo-panificadora-sop)
 
-### 6.2 Anexo 02 – 5.2 Cámaras de frío: temperatura, guardado y rotación
+## 6.2 Anexo 02 – 5.2 Cámaras de frío: temperatura, guardado y rotación
 
 Criterio del anexo: desarrollar la tarea 5.2 del SOP, tomando como base el relevamiento de campo y las indicaciones recibidas sobre temperatura, aviso ante desvíos, orden, limpieza, mercadería sin poncho, insumos sueltos, cajas abiertas o rotas, rotación y guardado de mercadería nueva.
 
-#### 6.2.1 Objetivo operativo
+### 6.2.1 Objetivo operativo
 
 Asegurar que las cámaras de frío de Panificadora se mantengan bajo condiciones controladas de temperatura, orden, protección de mercadería y rotación. El objetivo operativo no es solamente observar si la cámara está fría, sino verificar que la mercadería esté correctamente conservada, identificada, cubierta y disponible para producción sin generar riesgo sanitario, pérdida de calidad o merma.
 
 El control de cámaras debe funcionar como una tarea preventiva del Jefe Operativo. Una cámara puede mostrar temperatura dentro de rango y aun así tener desvíos relevantes: carros sin poncho, insumos apoyados en el piso, cajas abiertas, mercadería nueva tapando mercadería anterior o productos de otros sectores ocupando espacio operativo.
 
-#### 6.2.2 Alcance
+### 6.2.2 Alcance
 
 Este procedimiento alcanza las cámaras utilizadas por Panificadora, incluyendo las cámaras de Panadería, Pastelería, Manteca y Congelados, según los rangos relevados.
 
 El anexo desarrolla la tarea del Jefe Operativo vinculada al control y seguimiento. No reemplaza los procedimientos técnicos de mantenimiento de equipos de frío ni define criterios bromatológicos finales sobre aptitud de mercadería ante una exposición prolongada fuera de rango. Esos criterios quedan pendientes de validación con Administración, Mantenimiento y el responsable sanitario que corresponda.
 
-#### 6.2.3 Punto de control físico: display externo de temperatura
+### 6.2.3 Punto de control físico: display externo de temperatura
 
 Todas las cámaras relevadas cuentan con un display externo de temperatura ubicado fuera de la cámara.
 
@@ -32,7 +32,7 @@ La lectura externa agiliza el control, pero no reemplaza la revisión interna. E
 
 Punto de fuga: si la temperatura se observa en el display pero no se registra, el control queda como una acción visual sin trazabilidad. Ante un desvío posterior no se puede reconstruir desde cuándo existía la condición ni qué acción se tomó.
 
-#### 6.2.4 Rangos de temperatura relevados
+### 6.2.4 Rangos de temperatura relevados
 
 | Cámara | Rango / parámetro relevado | Criterio operativo |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ Punto de fuga: si la temperatura se observa en el display pero no se registra, e
 | Panadería | 3 °C a 5 °C | Controlar temperatura, carros con poncho y mercadería propia del sector. |
 | Congelados | -18 °C | Verificar condición de congelado y avisar ante desvío anormal. |
 
-#### 6.2.5 Secuencia operativa AS-IS
+### 6.2.5 Secuencia operativa AS-IS
 
 #### 6.2.5.1 Control inicial de temperatura
 
@@ -108,7 +108,7 @@ Cuando alguna bandeja se encuentra sucia, se limpia en el momento. Este criterio
 | Insumos | Guardados, cerrados y fuera del piso. | Guardar, cerrar o retirar de cámara. |
 | Carros | Con poncho y correctamente ubicados. | Cubrir, reubicar o informar al responsable. |
 
-#### 6.2.6 Acción ante desvíos de temperatura
+### 6.2.6 Acción ante desvíos de temperatura
 
 Cuando una cámara está fuera de los parámetros normales, no alcanza con detectar el desvío. El Jefe Operativo debe activar el aviso y definir una acción sobre la mercadería afectada.
 
@@ -136,7 +136,7 @@ Cuando una cámara está fuera de los parámetros normales, no alcanza con detec
 | Caja rota o abierta | Separar o reubicar según condición del producto. | Jefe Operativo / sector responsable. | Registrar si se pierde identificación. |
 | Mercadería vieja o mal rotada | Separar, evaluar y descartar si corresponde. | Jefe Operativo y responsable operativo. | Registrar como merma/desvío si aplica. |
 
-#### 6.2.7 Responsabilidades operativas relevadas
+### 6.2.7 Responsabilidades operativas relevadas
 
 | Responsabilidad | Responsable relevado | Comentario operativo |
 | --- | --- | --- |
@@ -148,7 +148,7 @@ Cuando una cámara está fuera de los parámetros normales, no alcanza con detec
 
 Información pendiente de relevamiento: definir responsable formal por cámara, frecuencia obligatoria de control, canal único de aviso, formato de registro y criterio de decisión sobre mercadería expuesta a desvíos prolongados.
 
-#### 6.2.8 Control de apertura y cierre vinculado a cámaras
+### 6.2.8 Control de apertura y cierre vinculado a cámaras
 
 El control de cámaras debe quedar integrado tanto al checklist de apertura como al checklist de fin de jornada. En apertura, el foco es habilitar el sector para producir sin riesgo operativo. En cierre, el foco es dejar la mercadería protegida, las cámaras ordenadas y los desvíos informados antes de abandonar el sector.
 
