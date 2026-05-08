@@ -12,13 +12,18 @@ function setHeader() {
 
   let title = "";
   let subtitle = "";
+  let crumbHTML = "";
   if (c.docId) {
     const d = byId(state.documentos, c.docId);
     const r = byId(state.roles, d.roleId);
-    title = d.titulo; subtitle = r.label;
+    const s = byId(state.sectores, d.sectorId);
+    title = d.titulo;
+    crumbHTML = `<a class="bc" data-action="sector" data-id="${s.id}">${s.label}</a> › <a class="bc" data-action="rol" data-id="${r.id}">${r.label}</a>`;
   } else if (c.roleId) {
     const r = byId(state.roles, c.roleId);
-    title = r.label; subtitle = r.sub || "";
+    const s = byId(state.sectores, r.sectorId);
+    title = r.label;
+    crumbHTML = `<a class="bc" data-action="sector" data-id="${s.id}">${s.label}</a>`;
   } else if (c.sectorId) {
     const s = byId(state.sectores, c.sectorId);
     title = s.label; subtitle = "Roles y documentos";
@@ -27,8 +32,20 @@ function setHeader() {
     logoRow.style.display = "none";
     detail.style.display = "block";
     detail.textContent = title;
-    sub.style.display = subtitle ? "block" : "none";
-    sub.textContent = subtitle;
+    if (crumbHTML) {
+      sub.style.display = "block";
+      sub.innerHTML = crumbHTML;
+      sub.querySelectorAll(".bc").forEach(a => {
+        a.addEventListener("click", function(){
+          const action = this.dataset.action, id = this.dataset.id;
+          if (action === "sector") openSector(id);
+          else if (action === "rol") openRole(id);
+        });
+      });
+    } else {
+      sub.style.display = subtitle ? "block" : "none";
+      sub.textContent = subtitle;
+    }
   } else {
     logoRow.style.display = "flex";
     detail.style.display = "none";
@@ -118,12 +135,21 @@ async function renderDocument(root, docId) {
   root.innerHTML = `<section class="screen active"><div class="content-block">Cargando documento...</div></section>`;
   try {
     const md = await loadMarkdown(d.path);
-    root.innerHTML = `<section class="screen active"><div class="content-block markdown">${mdToHTML(md)}</div></section>`;
+    const toc = mdExtractTOC(md);
+    root.innerHTML = `<section class="screen active">${toc}<div class="content-block markdown">${mdToHTML(md)}</div></section>`;
     root.querySelectorAll(".doc-link").forEach(a => {
       a.addEventListener("click", function(e){
         e.preventDefault();
         const id = this.getAttribute("data-doc-id");
         if (id) openDoc(id);
+      });
+    });
+    root.querySelectorAll(".md-toc a[data-toc-id]").forEach(a => {
+      a.addEventListener("click", function(e){
+        e.preventDefault();
+        const id = this.getAttribute("data-toc-id");
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
   } catch(e) {
