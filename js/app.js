@@ -240,11 +240,13 @@ function renderOrganigrama(root) {
       <div class="orga-direccion-list">`;
 
   direccion.forEach((r, i) => {
-    html += `<div class="orga-rol" onclick='orgaShow(${JSON.stringify(r.icono)},${JSON.stringify(r.nombre)},${JSON.stringify(r.cargo)},${JSON.stringify(r.detalle)})'>
+    const principal = r.equipo ? r.nombre : r.cargo;
+    const secundario = r.equipo ? r.cargo : r.nombre;
+    html += `<div class="orga-rol" onclick='orgaShow(${JSON.stringify(r.icono)},${JSON.stringify(principal)},${JSON.stringify(secundario)},${JSON.stringify(r.detalle)})'>
       <div class="orga-rol-avatar naranja">${r.icono || "👤"}</div>
       <div class="orga-rol-info">
-        <div class="orga-rol-nombre">${r.nombre}</div>
-        <div class="orga-rol-cargo">${r.cargo}</div>
+        <div class="orga-rol-nombre">${principal}</div>
+        <div class="orga-rol-cargo">${secundario}</div>
       </div>
     </div>`;
   });
@@ -267,11 +269,13 @@ function renderOrganigrama(root) {
       if ((b.clase || "").includes("soporte")) avatarClass = "violeta";
       if (r.destacado) avatarClass = "verde";
 
-      html += `<div class="${cls}" onclick='orgaShow(${JSON.stringify(r.icono)},${JSON.stringify(r.nombre)},${JSON.stringify(r.cargo)},${JSON.stringify(r.detalle)})'>
+      const principal = r.equipo ? r.nombre : r.cargo;
+      const secundario = r.equipo ? r.cargo : r.nombre;
+      html += `<div class="${cls}" onclick='orgaShow(${JSON.stringify(r.icono)},${JSON.stringify(principal)},${JSON.stringify(secundario)},${JSON.stringify(r.detalle)})'>
         <div class="orga-rol-avatar ${avatarClass}">${r.icono || "👤"}</div>
         <div class="orga-rol-info">
-          <div class="orga-rol-nombre">${r.nombre}</div>
-          <div class="orga-rol-cargo">${r.cargo}</div>
+          <div class="orga-rol-nombre">${principal}</div>
+          <div class="orga-rol-cargo">${secundario}</div>
         </div>
       </div>`;
     });
