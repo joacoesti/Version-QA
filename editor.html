@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>UNISOL · Editor</title><link rel="stylesheet" href="css/styles.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>UNISOL · Editor</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
 <main class="app">
-  <section class="screen active">
-    <div class="content-block markdown">
-      <h1>Editor de contenido</h1>
-      <p>En esta V3 modular, el editor visual anterior queda pendiente de migración.</p>
-      <p>Para editar contenido operativo, modificá archivos Markdown dentro de <strong>/docs</strong> y el índice en <strong>/data/documentos-index.json</strong>.</p>
-      <blockquote><strong>Regla:</strong> Claude no debería tocar index.html para cargar contenido operativo.</blockquote>
+  <header class="header">
+    <div class="header-top">
+      <button id="edBack" class="back-btn" style="display:none">← Volver</button>
+      <div class="logo-row">
+        <div class="logo-name">UNISOL · Editor</div>
+      </div>
+      <button id="edConfig" style="margin-left:auto;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;font-family:inherit">⚙ Token</button>
     </div>
-  </section>
+  </header>
+
+  <section id="edScreen" class="screen active" style="padding:1rem"></section>
 </main>
-</body></html>
+
+<script src="js/markdown.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>

@@ -55,6 +55,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 .result-item{background:var(--blanco);border:.5px solid var(--borde);border-radius:12px;padding:.85rem 1rem;margin-bottom:8px;cursor:pointer}.result-path{font-size:11px;color:var(--gris-texto);margin-bottom:4px}.result-path b{color:var(--verde)}.result-title{font-size:14px;font-weight:700}.result-snippet{font-size:12px;color:var(--gris-texto);margin-top:3px;line-height:1.4}.no-results{text-align:center;padding:2.5rem 1rem;color:var(--gris-texto);font-size:14px}
 .login-bg{position:fixed;inset:0;background:#3A8C2F;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}.login-card{background:white;border-radius:16px;padding:32px 26px;max-width:360px;width:100%;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.2)}.login-card img{width:64px;height:64px;border-radius:50%;margin-bottom:14px}.login-title{font-size:22px;font-weight:800;color:#3A8C2F;margin-bottom:4px}.login-sub{font-size:13px;color:#666;margin-bottom:22px}.login-card input{width:100%;padding:12px 14px;border:1px solid #E5E7EB;border-radius:10px;font-size:15px;font-family:inherit;margin-bottom:10px}.login-card button{width:100%;background:#3A8C2F;color:white;border:none;border-radius:10px;padding:12px;font-size:15px;font-weight:700;cursor:pointer}.login-error{color:#CC1100;font-size:13px;margin-top:10px;display:none}
 .hidden{display:none!important}
+.ed-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.ed-tabs{display:flex;gap:4px;background:#fff;border:.5px solid var(--borde);border-radius:10px;padding:3px}
+.ed-tab{background:none;border:none;padding:6px 12px;font-size:12px;font-weight:700;border-radius:7px;cursor:pointer;font-family:inherit;color:var(--gris-medio)}
+.ed-tab.active{background:var(--verde);color:#fff}
+.ed-save{margin-left:auto;background:var(--verde);color:#fff;border:none;border-radius:10px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+.ed-save:hover{background:var(--verde-medio)}
+.ed-status{font-size:12px;padding:0;min-height:0;margin-bottom:8px;border-radius:8px;transition:all .2s}
+.ed-status:not(:empty){padding:8px 10px}
+.ed-status-info{background:var(--gris-claro);color:var(--gris-medio)}
+.ed-status-ok{background:var(--verde-suave);color:var(--verde)}
+.ed-status-err{background:var(--rojo-suave);color:var(--rojo)}
+.ed-pane{display:none}
+.ed-pane.active{display:block}
+#edEdit{display:block}
+#edText{width:100%;min-height:60vh;border:.5px solid var(--borde);border-radius:10px;padding:12px;font-family:"Consolas","Monaco",monospace;font-size:13px;line-height:1.5;background:#fff;resize:vertical}
+#edText:focus{outline:2px solid var(--verde);outline-offset:-1px}
 
 
 /* V3.1 · Procedimientos por sector y rol */
