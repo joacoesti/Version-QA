@@ -69,7 +69,7 @@
 4. 4° envío · 14:00 — Reposición de mediodía.
 5. 5° envío · 16:00 — Refuerzo de tarde.
 6. 6° envío · 18:00 — Reposición previa al tramo final de venta.
-7. 7° envío · 20:00 — Último control antes del cierre del turno.
+7. 7° cierre · 20:00 — Último control antes del cierre del turno.
 
 > **Pendiente de validación:** Definir en qué horarios es obligatorio tener todo lleno — los momentos críticos de venta.
 
