@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNISOL - Consultas a Manuales</title>
+  <link rel="stylesheet" href="css/consultas.css" />
+</head>
+<body>
+  <header class="cs-header">
+    <a href="index.html" class="cs-back" aria-label="Volver">&larr; Volver</a>
+    <h1 class="cs-title">Asistente UNISOL</h1>
+    <span class="cs-subtitle">Consultas sobre manuales de procesos</span>
+  </header>
+
+  <main class="cs-layout">
+    <section class="cs-chat" aria-label="Conversacion">
+      <div id="cs-messages" class="cs-messages">
+        <div class="cs-welcome">
+          <h2>Hola, soy el asistente de UNISOL</h2>
+          <p>Respondo consultas sobre los manuales de procesos cargados (abastecimiento, cocina, panificadora). Si la informacion no esta en los manuales, te lo digo claramente.</p>
+          <div class="cs-suggested" id="cs-suggested-initial">
+            <button class="cs-suggestion">Cuales son las tareas diarias de abastecimiento?</button>
+            <button class="cs-suggestion">Como se gestionan los pedidos de mercaderia?</button>
+            <button class="cs-suggestion">Que tareas realiza el Jefe de Cocina?</button>
+            <button class="cs-suggestion">Como funciona el ingreso al sector de panificadora?</button>
+          </div>
+        </div>
+      </div>
+
+      <form id="cs-form" class="cs-form" autocomplete="off">
+        <textarea
+          id="cs-input"
+          class="cs-input"
+          placeholder="Escribi tu pregunta..."
+          rows="1"
+          required></textarea>
+        <button type="submit" id="cs-send" class="cs-send" aria-label="Enviar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </form>
+      <p class="cs-disclaimer">Las respuestas se generan solo con base en los manuales cargados. No reemplaza la consulta con el responsable del area.</p>
+    </section>
+
+    <aside class="cs-sources" id="cs-sources" aria-label="Fuentes">
+      <h2 class="cs-sources-title">Fuentes</h2>
+      <p class="cs-sources-empty" id="cs-sources-empty">Hace una pregunta para ver de que manual se sacaron las respuestas.</p>
+      <ol class="cs-sources-list" id="cs-sources-list"></ol>
+    </aside>
+  </main>
+
+  <script src="js/consultas-agent.js"></script>
+</body>
+</html>
