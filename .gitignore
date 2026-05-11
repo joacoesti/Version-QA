@@ -1,9 +1,18 @@
-# Carpeta legacy duplicada (versión vieja con su propio .git)
+# Carpeta legacy duplicada (version vieja con su propio .git)
 Version QA/
 
 # Datos pesados que no deben subirse al repo
 *.zip
 *.xlsx
+
+# Variables de entorno (NUNCA subir secretos)
+.env
+.env.local
+.env.*.local
+
+# Dependencias Node y artefactos de build
+node_modules/
+.vercel/
 
 # Sistema operativo
 Thumbs.db

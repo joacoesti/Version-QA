@@ -1,0 +1,14 @@
+{
+  "name": "unisol-web",
+  "version": "1.0.0",
+  "description": "Frontend Unisol + backend agente de manuales (RAG sobre Supabase + Gemini)",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
