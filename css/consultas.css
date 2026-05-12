@@ -336,3 +336,46 @@ html, body {
   border-radius: var(--cs-radius);
   border-left: 1px solid var(--cs-border);
 }
+
+/* ====== FUENTES CLICABLES (navegan al documento) ====== */
+.cs-source-clickable {
+  cursor: pointer;
+  position: relative;
+}
+.cs-source-clickable:hover {
+  border-color: var(--cs-accent);
+  background: var(--cs-user-bg);
+}
+.cs-source-hint {
+  display: block;
+  font-size: 11px;
+  color: var(--cs-accent);
+  margin-top: 4px;
+  font-weight: 500;
+}
+.cs-cite {
+  /* Refuerzo el hover para indicar que ahora navega */
+  position: relative;
+}
+.cs-cite::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+/* ====== HIGHLIGHT TEMPORAL DEL CHUNK CITADO ====== */
+/* Cuando se clickea una cita, el elemento citado se resalta brevemente */
+.cs-highlighted-chunk {
+  background: linear-gradient(90deg, rgba(26, 115, 232, 0.15), rgba(26, 115, 232, 0.05));
+  border-left: 3px solid var(--cs-accent);
+  padding-left: 12px !important;
+  margin-left: -15px;
+  animation: cs-pulse 1.2s ease-out;
+  transition: background 1.5s ease-out, border-color 1.5s ease-out;
+}
+@keyframes cs-pulse {
+  0%   { background: rgba(26, 115, 232, 0.35); }
+  100% { background: rgba(26, 115, 232, 0.15); }
+}

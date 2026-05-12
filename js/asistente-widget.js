@@ -13,6 +13,101 @@
     lastSources: [],
   };
 
+  // Busca el docId en el indice del SPA dado el source de un chunk.
+  // source en Supabase: "abastecimiento/encargado-abastecimiento-tareas-diarias.md"
+  // path en docs-index:  "docs/abastecimiento/encargado-abastecimiento-tareas-diarias.md"
+  function resolveDocIdFromSource(source) {
+    if (!source) return null;
+    const state = window.UNISOL && window.UNISOL.state;
+    if (!state || !Array.isArray(state.documentos)) return null;
+    const target1 = source.replace(/\\/g, '/');
+    const target2 = 'docs/' + target1;
+    const match = state.documentos.find(function (d) {
+      if (!d.path) return false;
+      const p = d.path.replace(/\\/g, '/');
+      return p === target1 || p === target2 || p.endsWith('/' + target1);
+    });
+    return match && match.disponible ? match.id : null;
+  }
+
+  // Normaliza texto para matching (sin tildes, lowercase, espacios colapsados)
+  function normalizeForMatch(s) {
+    return (s || '')
+      .toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  // Despues de abrir un documento, busca el chunk citado en el DOM renderizado
+  // y scrollea a la seccion correspondiente (header mas cercano arriba del texto).
+  function scrollToChunkInDoc(chunkSnippet) {
+    if (!chunkSnippet) return;
+    const root = document.getElementById('root');
+    if (!root) return;
+
+    // Tomamos los primeros ~80 caracteres del snippet como "huella" del chunk
+    const needle = normalizeForMatch(chunkSnippet).slice(0, 80);
+    if (needle.length < 20) return;
+
+    const observer = new MutationObserver(function (mutations, obs) {
+      // Cuando aparece el contenido markdown renderizado, intentamos el match
+      const md = root.querySelector('.content-block.markdown');
+      if (!md) return;
+
+      // Buscamos el elemento que contenga el needle
+      const candidates = md.querySelectorAll('p, li, h1, h2, h3, h4, td, th, blockquote');
+      let matchEl = null;
+      for (const el of candidates) {
+        if (normalizeForMatch(el.textContent).includes(needle.slice(0, 50))) {
+          matchEl = el;
+          break;
+        }
+      }
+
+      // Si no encontramos por texto, no hacemos nada (el doc ya esta abierto al menos)
+      if (matchEl) {
+        // Encontrar el header mas cercano hacia arriba (h1-h4)
+        let target = matchEl;
+        let prev = matchEl.previousElementSibling;
+        while (prev) {
+          if (/^H[1-4]$/.test(prev.tagName)) { target = prev; break; }
+          prev = prev.previousElementSibling;
+        }
+
+        // Scrollear y resaltar el elemento del match (no el header, mas precision)
+        setTimeout(function () {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          matchEl.classList.add('cs-highlighted-chunk');
+          setTimeout(function () {
+            matchEl.classList.remove('cs-highlighted-chunk');
+          }, 3500);
+        }, 200);
+      }
+
+      obs.disconnect();
+    });
+
+    observer.observe(root, { childList: true, subtree: true });
+    // Safety: desconectar despues de 5 segundos por si algo no se renderiza
+    setTimeout(function () { observer.disconnect(); }, 5000);
+  }
+
+  function openDocFromCitation(ref) {
+    const src = state.lastSources.find(function (s) { return s.ref === ref; });
+    if (!src) return false;
+    const docId = resolveDocIdFromSource(src.source);
+    if (docId && typeof window.openDoc === 'function') {
+      window.openDoc(docId);
+      // Disparamos el scroll-to-chunk despues de la navegacion
+      scrollToChunkInDoc(src.snippet);
+      return true;
+    }
+    return false;
+  }
+
+
+
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -162,7 +257,11 @@
       $messages.appendChild(wrap);
       bubble.querySelectorAll('.cs-cite').forEach(function (chip) {
         chip.addEventListener('click', function () {
-          highlightSource(parseInt(chip.getAttribute('data-ref'), 10));
+          const ref = parseInt(chip.getAttribute('data-ref'), 10);
+          // Si el documento existe en el indice, navegamos. Si no, solo resaltamos.
+          if (!openDocFromCitation(ref)) {
+            highlightSource(ref);
+          }
         });
       });
       scrollToBottom();
@@ -179,11 +278,22 @@
         const li = document.createElement('li');
         li.className = 'cs-source-item';
         li.id = 'cs-source-' + s.ref;
+        const docId = resolveDocIdFromSource(s.source);
+        const linkClass = docId ? ' cs-source-clickable' : '';
+        const linkHint = docId ? '<span class="cs-source-hint">Click para abrir &rarr;</span>' : '';
+        li.className = 'cs-source-item' + linkClass;
         li.innerHTML =
           '<div><span class="cs-source-ref">' + s.ref + '</span>' +
           '<span class="cs-source-name">' + escapeHtml(s.source) + '</span></div>' +
           '<div class="cs-source-snippet">' + escapeHtml(s.snippet) + '</div>' +
-          '<span class="cs-source-sim">Relevancia: ' + (s.similarity * 100).toFixed(0) + '%</span>';
+          '<span class="cs-source-sim">Relevancia: ' + (s.similarity * 100).toFixed(0) + '%</span>' +
+          linkHint;
+        if (docId && typeof window.openDoc === 'function') {
+          li.addEventListener('click', function () {
+            window.openDoc(docId);
+            scrollToChunkInDoc(s.snippet);
+          });
+        }
         $sourcesList.appendChild(li);
       });
     }
