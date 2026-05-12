@@ -69,6 +69,26 @@ function renderApp() {
   if (c.tab === "procedimientos") return renderProcedimientos(root);
   if (c.tab === "organigrama") return renderOrganigrama(root);
   if (c.tab === "planillas") return renderPlanillas(root);
+  if (c.tab === "asistente") return renderAsistente(root);
+}
+
+function renderAsistente(root) {
+  function mountWhenReady() {
+    if (window.AsistenteWidget && typeof window.AsistenteWidget.mount === "function") {
+      window.AsistenteWidget.mount(root);
+    } else {
+      root.innerHTML = '<section class="screen active"><div class="content-block">No se pudo cargar el asistente. Recargá la página.</div></section>';
+    }
+  }
+  if (window.AsistenteWidget) return mountWhenReady();
+  root.innerHTML = '<section class="screen active"><div class="content-block">Cargando asistente...</div></section>';
+  const s = document.createElement("script");
+  s.src = "js/asistente-widget.js";
+  s.onload = mountWhenReady;
+  s.onerror = function() {
+    root.innerHTML = '<section class="screen active"><div class="content-block">Error cargando el asistente.</div></section>';
+  };
+  document.head.appendChild(s);
 }
 
 function renderHomeRoles(root) {
@@ -333,11 +353,25 @@ function renderSearch(q) {
   root.innerHTML = html;
 }
 
+function ensureAsistenteTab() {
+  // Inyecta dinamicamente el boton de pestana "Asistente" en el nav existente
+  const tabs = document.getElementById("tabs");
+  if (!tabs) return;
+  if (tabs.querySelector('[data-tab="asistente"]')) return;
+  const btn = document.createElement("button");
+  btn.className = "tab-btn";
+  btn.setAttribute("data-tab", "asistente");
+  btn.textContent = "Asistente";
+  btn.addEventListener("click", () => setTab("asistente"));
+  tabs.appendChild(btn);
+}
+
 document.addEventListener("DOMContentLoaded", async function(){
   try {
     await bootData();
     document.getElementById("logoImg").src = window.UNISOL.state.config.assets.logo;
     document.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", () => setTab(btn.dataset.tab)));
+    ensureAsistenteTab();
     document.getElementById("backBtn").addEventListener("click", goBack);
     wireSearch();
     if (!renderLoginIfNeeded()) renderApp();

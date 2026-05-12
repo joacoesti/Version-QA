@@ -298,3 +298,41 @@ html, body {
   color: var(--cs-text-mute);
   margin-top: 6px;
 }
+
+/* ====== VERSION EMBEBIDA (dentro del SPA de UNISOL) ====== */
+.cs-embed {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+  height: 70vh;
+  min-height: 500px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .cs-embed { grid-template-columns: 1fr; height: auto; }
+  .cs-embed .cs-sources { display: none; }
+}
+.cs-embed .cs-chat {
+  display: flex;
+  flex-direction: column;
+  background: var(--cs-panel);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  overflow: hidden;
+}
+.cs-embed .cs-messages {
+  padding: 18px 18px 8px;
+}
+.cs-embed .cs-form {
+  padding: 12px 18px 6px;
+  background: var(--cs-panel);
+}
+.cs-embed .cs-disclaimer {
+  padding-bottom: 12px;
+}
+.cs-embed .cs-sources {
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  border-left: 1px solid var(--cs-border);
+}
