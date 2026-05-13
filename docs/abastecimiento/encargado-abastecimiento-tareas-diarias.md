@@ -32,7 +32,7 @@
 
 > **Pendiente de validación:** Confirmar en qué horario exacto se pasa por Fiambrería a tomar la comanda.
 
-## D · Primera reposición · 8:00
+## D · Primera reposición 
 
 *Cargar los congelados lo más completo posible para que esta sea la única reposición fuerte del día en ese módulo.*
 
@@ -47,7 +47,7 @@
 
 > **Punto crítico:** Si el freezer queda cargado a tope, probablemente no haga falta otra reposición fuerte de congelados en el día.
 
-## E · Segunda reposición · 9:00 a 10:00
+## E · Segunda reposición 
 
 *Asegurar el surtido visible de isla, Fiambrería y pollos antes del tramo fuerte de venta.*
 
@@ -101,7 +101,7 @@
 
 > **Pendiente de validación:** Definir los stocks mínimos por producto junto con Cocina.
 
-## M · Cierre / fin de turno · 20:00
+## M · Cierre / fin de turno 
 
 *El turno de Abastecimiento termina a las 20:00. El cierre final de la isla queda a cargo de Fiambrería.*
 
