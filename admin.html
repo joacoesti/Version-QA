@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNISOL - Admin de Manuales</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <!-- LOGIN VIEW -->
+  <section id="adm-login" class="adm-screen adm-login">
+    <div class="adm-card">
+      <div class="adm-logo">
+        <img src="assets/logo.png" alt="UNISOL" onerror="this.style.display='none'" />
+        <h1>UNISOL Admin</h1>
+      </div>
+      <p class="adm-muted">Acceso restringido. Ingresa la clave de administrador.</p>
+      <form id="adm-login-form">
+        <input
+          type="password"
+          id="adm-pwd"
+          placeholder="Contraseña"
+          autocomplete="current-password"
+          required />
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="adm-login-err" class="adm-err"></p>
+      <a href="index.html" class="adm-back">&larr; Volver al sitio</a>
+    </div>
+  </section>
+
+  <!-- ADMIN VIEW -->
+  <section id="adm-main" class="adm-screen adm-main" style="display:none">
+    <header class="adm-header">
+      <a href="index.html" class="adm-link">&larr; Volver al sitio</a>
+      <h1>Subir manuales</h1>
+      <button id="adm-logout" class="adm-link-btn">Salir</button>
+    </header>
+
+    <main class="adm-content">
+      <div class="adm-card adm-form-card">
+        <h2>1. Archivo</h2>
+        <div id="adm-dropzone" class="adm-dropzone">
+          <input type="file" id="adm-file" accept=".docx" hidden />
+          <div class="adm-dropzone-inner">
+            <div class="adm-dropzone-icon">📄</div>
+            <div>
+              <strong id="adm-filename">Arrastra un archivo .docx</strong>
+              <div class="adm-muted">o hace click para elegir</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>2. Tipo de operación</h2>
+        <div class="adm-radio-group">
+          <label><input type="radio" name="adm-op" value="new" checked /> Nuevo manual</label>
+          <label><input type="radio" name="adm-op" value="replace" /> Reemplazar uno existente</label>
+        </div>
+
+        <div id="adm-replace-block" style="display:none">
+          <h2>Documento a reemplazar</h2>
+          <select id="adm-replace-doc"></select>
+        </div>
+
+        <div id="adm-new-block">
+          <h2>3. Ubicación y metadatos</h2>
+          <div class="adm-grid-2">
+            <div>
+              <label>Sector</label>
+              <select id="adm-sector"></select>
+            </div>
+            <div>
+              <label>Rol</label>
+              <select id="adm-role"></select>
+            </div>
+          </div>
+
+          <label>Título del manual</label>
+          <input type="text" id="adm-titulo" placeholder="ej: Listado de tareas diarias" />
+
+          <label>Descripción (opcional)</label>
+          <input type="text" id="adm-desc" placeholder="ej: Rutina completa por momentos del dia" />
+
+          <label>Badge (opcional)</label>
+          <input type="text" id="adm-badge" placeholder="ej: Tareas del día / SOP / Anexo" />
+        </div>
+
+        <button id="adm-submit" class="adm-primary" disabled>Subir y commitear</button>
+        <p id="adm-err" class="adm-err"></p>
+      </div>
+
+      <div id="adm-result" class="adm-card" style="display:none">
+        <h2>Resultado</h2>
+        <p id="adm-result-msg"></p>
+        <pre id="adm-preview"></pre>
+        <div class="adm-actions">
+          <a id="adm-commit-link" href="#" target="_blank" class="adm-link">Ver commit en GitHub &rarr;</a>
+          <button id="adm-reingest" class="adm-primary">Re-ingestar al agente</button>
+        </div>
+        <p id="adm-reingest-msg"></p>
+        <p class="adm-muted">Nota: el deploy de Vercel tarda 1-2 minutos despues del commit. Antes de re-ingestar, esperá a que el deploy termine.</p>
+      </div>
+    </main>
+  </section>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
