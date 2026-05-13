@@ -164,19 +164,31 @@
 
   // ===== SUBMIT =====
 
-  // Convierte el .docx a markdown EN EL NAVEGADOR usando mammoth.browser
-  // Esto evita el limite de 4.5MB de body en Vercel (el md es mucho mas chico que el docx)
+  // Convierte el .docx a markdown EN EL NAVEGADOR usando mammoth.browser.
+  // SKIP imagenes: el agente solo necesita texto, y las imagenes inflan mucho el payload.
   function fileToMarkdown(file) {
     return new Promise(function (resolve, reject) {
       const reader = new FileReader();
       reader.onload = async function () {
         try {
           if (!window.mammoth || !window.mammoth.convertToMarkdown) {
-            reject(new Error('mammoth no esta cargado'));
+            reject(new Error('mammoth.browser no esta cargado'));
             return;
           }
-          const result = await window.mammoth.convertToMarkdown({ arrayBuffer: reader.result });
-          resolve(result.value || '');
+          // Funcion convertImage que devuelve un placeholder vacio (no embebe la imagen)
+          const skipImages = window.mammoth.images.imgElement(function () {
+            return { src: '' };
+          });
+          const result = await window.mammoth.convertToMarkdown(
+            { arrayBuffer: reader.result },
+            { convertImage: skipImages }
+          );
+          let md = result.value || '';
+          // Limpieza extra: cualquier ![...](data:...) residual o ![]() vacio
+          md = md.replace(/!\[[^\]]*\]\(data:[^)]+\)/g, '[imagen omitida]');
+          md = md.replace(/!\[\]\(\s*\)/g, '');
+          md = md.replace(/!\[[^\]]*\]\(\s*\)/g, '');
+          resolve(md.trim());
         } catch (err) { reject(err); }
       };
       reader.onerror = reject;
@@ -225,6 +237,12 @@
         $err.textContent = 'No pude extraer texto del archivo. Verificá que sea un .docx válido.';
         return;
       }
+      const mdSizeKB = Math.round((new Blob([markdown]).size) / 1024);
+      console.log('Markdown size:', mdSizeKB, 'KB');
+      if (mdSizeKB > 4000) {
+        $err.textContent = 'El manual convertido pesa ' + mdSizeKB + 'KB (limite ~4MB). Probá un documento mas chico o sin imagenes/tablas pesadas.';
+        return;
+      }
       const res = await apiFetch('/api/admin/upload-manual', {
         method: 'POST',
         body: {
@@ -238,9 +256,16 @@
           replaceDocId,
         },
       });
-      const data = await res.json();
+      // Lectura defensiva: si no es JSON, mostramos el texto crudo
+      let data;
+      const text = await res.text();
+      try { data = JSON.parse(text); }
+      catch {
+        $err.textContent = 'Respuesta del servidor no es JSON (' + res.status + '): ' + text.slice(0, 200);
+        return;
+      }
       if (!res.ok) {
-        $err.textContent = data.error + (data.detail ? ' - ' + data.detail : '');
+        $err.textContent = (data.error || 'Error') + (data.detail ? ' - ' + data.detail : '');
         return;
       }
       LAST_UPLOAD = data;
