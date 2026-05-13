@@ -164,16 +164,23 @@
 
   // ===== SUBMIT =====
 
-  function fileToBase64(file) {
+  // Convierte el .docx a markdown EN EL NAVEGADOR usando mammoth.browser
+  // Esto evita el limite de 4.5MB de body en Vercel (el md es mucho mas chico que el docx)
+  function fileToMarkdown(file) {
     return new Promise(function (resolve, reject) {
       const reader = new FileReader();
-      reader.onload = function () {
-        const result = reader.result;
-        const b64 = result.split(',')[1];
-        resolve(b64);
+      reader.onload = async function () {
+        try {
+          if (!window.mammoth || !window.mammoth.convertToMarkdown) {
+            reject(new Error('mammoth no esta cargado'));
+            return;
+          }
+          const result = await window.mammoth.convertToMarkdown({ arrayBuffer: reader.result });
+          resolve(result.value || '');
+        } catch (err) { reject(err); }
       };
       reader.onerror = reject;
-      reader.readAsDataURL(file);
+      reader.readAsArrayBuffer(file);
     });
   }
 
@@ -213,11 +220,15 @@
     $submit.textContent = 'Subiendo...';
 
     try {
-      const base64 = await fileToBase64(file);
+      const markdown = await fileToMarkdown(file);
+      if (!markdown || markdown.length < 20) {
+        $err.textContent = 'No pude extraer texto del archivo. Verificá que sea un .docx válido.';
+        return;
+      }
       const res = await apiFetch('/api/admin/upload-manual', {
         method: 'POST',
         body: {
-          fileBase64: base64,
+          markdown,
           fileName: file.name,
           sectorId,
           roleId,

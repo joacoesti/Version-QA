@@ -1,20 +1,10 @@
 // api/admin/upload-manual.js
-// POST con JSON: { fileBase64, fileName, sectorId, roleId, titulo, descripcion, badge?, replaceDocId? }
-// 1) Convierte .docx (base64) -> markdown via mammoth
-// 2) Guarda en docs/{sector}/{slug}.md via GitHub API
-// 3) Actualiza data/documentos-index.json (agrega o reemplaza entry)
-// Respuesta: { path, docId, commitUrl }
+// POST con JSON: { markdown, fileName, sectorId, roleId, titulo, descripcion, badge?, replaceDocId? }
+// Recibe el markdown YA CONVERTIDO en el cliente (mammoth.browser) y solo se encarga de commitear.
+// Esto evita el limite de 4.5MB de body de Vercel (el .docx puede ser grande, el .md es chico).
 
 import { verifyToken, tokenFromReq } from '../../lib/auth.js';
 import { getFile, putFile, getDocsIndex, REPO_INFO } from '../../lib/github.js';
-
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '10mb',
-    },
-  },
-};
 
 function cors(res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -41,28 +31,18 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-    const { fileBase64, fileName, sectorId, roleId, titulo, descripcion, badge, replaceDocId } = body || {};
+    const { markdown, fileName, sectorId, roleId, titulo, descripcion, badge, replaceDocId } = body || {};
 
-    if (!fileBase64 || !fileName) return res.status(400).json({ error: 'Falta archivo (fileBase64/fileName)' });
+    if (!markdown || markdown.trim().length < 20) {
+      return res.status(400).json({ error: 'Markdown vacio o muy corto' });
+    }
     if (!sectorId) return res.status(400).json({ error: 'Falta sectorId' });
     if (!roleId) return res.status(400).json({ error: 'Falta roleId' });
     if (!titulo) return res.status(400).json({ error: 'Falta titulo' });
 
-    // 1) Decodificar y convertir docx -> markdown
-    const buf = Buffer.from(fileBase64, 'base64');
-    const mammoth = (await import('mammoth')).default;
-    let mdResult;
-    try {
-      mdResult = await mammoth.convertToMarkdown({ buffer: buf });
-    } catch (e) {
-      return res.status(400).json({ error: 'No pude convertir el .docx', detail: e.message });
-    }
-    const markdown = (mdResult.value || '').trim();
-    if (markdown.length < 20) {
-      return res.status(400).json({ error: 'El documento esta vacio o no se pudo extraer texto' });
-    }
+    const cleanMarkdown = markdown.trim();
 
-    // 2) Determinar path destino: si reemplazo, mantener el path existente
+    // 1) Determinar path destino y entrada en el index
     const { sha: indexSha, data: index } = await getDocsIndex();
     let targetPath;
     let entry;
@@ -80,7 +60,6 @@ export default async function handler(req, res) {
       const slug = slugify(roleId + '-' + titulo);
       targetPath = 'docs/' + sectorId + '/' + slug + '.md';
       const newId = slug.startsWith(sectorId) ? slug : sectorId + '-' + slug;
-      // Si ya existe un doc con ese id, le agregamos sufijo
       let finalId = newId;
       let counter = 2;
       while (index.find((d) => d.id === finalId)) {
@@ -102,9 +81,9 @@ export default async function handler(req, res) {
       index.push(entry);
     }
 
-    // 3) Subir el .md (si existe lo actualizamos con su SHA)
+    // 2) Subir el .md (si existe lo actualizamos con su SHA)
     const existingMd = await getFile(targetPath);
-    const mdContentB64 = Buffer.from(markdown, 'utf-8').toString('base64');
+    const mdContentB64 = Buffer.from(cleanMarkdown, 'utf-8').toString('base64');
     const mdResp = await putFile({
       path: targetPath,
       contentBase64: mdContentB64,
@@ -112,7 +91,7 @@ export default async function handler(req, res) {
       sha: existingMd.exists ? existingMd.sha : undefined,
     });
 
-    // 4) Subir el index actualizado (SIEMPRE update porque ya existe)
+    // 3) Subir el index actualizado
     const indexJson = JSON.stringify(index, null, 2) + '\n';
     const indexB64 = Buffer.from(indexJson, 'utf-8').toString('base64');
     const indexResp = await putFile({
@@ -128,7 +107,7 @@ export default async function handler(req, res) {
       docId: entry.id,
       commitUrl: mdResp.commit?.html_url || null,
       indexCommitUrl: indexResp.commit?.html_url || null,
-      markdown_preview: markdown.slice(0, 500),
+      markdown_preview: cleanMarkdown.slice(0, 500),
       repo: REPO_INFO,
     });
   } catch (err) {
