@@ -222,5 +222,19 @@
     "path": "docs/abastecimiento/abastecimiento-anexo-003-planillas-de-stock.md",
     "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778785953428-05-12-unisolanxcocaba003usoplanillascontrolstock.docx",
     "originalPath": "abastecimiento/1778785953428-05-12-unisolanxcocaba003usoplanillascontrolstock.docx"
+  },
+  {
+    "id": "abastecimiento-anexo-004-cierre-operativo",
+    "documentoId": "tareas-diarias",
+    "sectorId": "abastecimiento",
+    "roleId": "abastecimiento",
+    "badge": "Anexo",
+    "titulo": "Anexo-004-Cierre Operativo",
+    "descripcion": "",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/abastecimiento/abastecimiento-anexo-004-cierre-operativo.md",
+    "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778786188409-05-14-anx-cocaba004cierreoperativococina.docx",
+    "originalPath": "abastecimiento/1778786188409-05-14-anx-cocaba004cierreoperativococina.docx"
   }
 ]
