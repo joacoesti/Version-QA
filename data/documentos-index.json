@@ -194,5 +194,19 @@
     "path": "docs/abastecimiento/abastecimiento-anexo-002---control-de-modulos.md",
     "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778765476103-05-12-unisolanxcocaba002controlesmoduloscapacidades.docx",
     "originalPath": "abastecimiento/1778765476103-05-12-unisolanxcocaba002controlesmoduloscapacidades.docx"
+  },
+  {
+    "id": "cocina-jefe-cocina-anexo-002--apertura-inicial",
+    "documentoId": "tareas-diarias",
+    "sectorId": "cocina",
+    "roleId": "jefe-cocina",
+    "badge": "Anexo",
+    "titulo": "Anexo-002- Apertura inicial",
+    "descripcion": "",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/cocina/jefe-cocina-anexo-002--apertura-inicial.md",
+    "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/cocina/1778782579573-05-11-unisolanxcoc002aperturaproduccioninicialv1.docx",
+    "originalPath": "cocina/1778782579573-05-11-unisolanxcoc002aperturaproduccioninicialv1.docx"
   }
 ]
