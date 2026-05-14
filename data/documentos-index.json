@@ -180,5 +180,19 @@
     "path": "docs/cocina/jefe-cocina-anexo-002--apertura-inicial.md",
     "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/cocina/1778782579573-05-11-unisolanxcoc002aperturaproduccioninicialv1.docx",
     "originalPath": "cocina/1778782579573-05-11-unisolanxcoc002aperturaproduccioninicialv1.docx"
+  },
+  {
+    "id": "abastecimiento-anexo-001-gestion-de-etiquetas",
+    "documentoId": "tareas-diarias",
+    "sectorId": "abastecimiento",
+    "roleId": "abastecimiento",
+    "badge": "Anexo",
+    "titulo": "Anexo-001-Gestión de Etiquetas",
+    "descripcion": "",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/abastecimiento/abastecimiento-anexo-001-gestion-de-etiquetas.md",
+    "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778785544995-05-12-unisolanxcocaba001gestionetiquetasvidautilv2.docx",
+    "originalPath": "abastecimiento/1778785544995-05-12-unisolanxcocaba001gestionetiquetasvidautilv2.docx"
   }
 ]
