@@ -100,6 +100,57 @@
         <p id="adm-reingest-msg"></p>
         <p class="adm-muted">Nota: el deploy de Vercel tarda 1-2 minutos despues del commit. Antes de re-ingestar, esperá a que el deploy termine.</p>
       </div>
+
+      <!-- ========== SECCION: MANUALES EXISTENTES (eliminar) ========== -->
+      <div class="adm-card">
+        <h2>Manuales cargados</h2>
+        <p class="adm-muted">Eliminá los manuales que ya no necesitas. Borra el .md del repo, los chunks en Supabase y el original en Storage.</p>
+        <div id="adm-docs-list" class="adm-docs-list">Cargando...</div>
+      </div>
+
+      <!-- ========== SECCION: CREAR ROL ========== -->
+      <div class="adm-card">
+        <h2>Crear nuevo rol</h2>
+        <p class="adm-muted">El rol aparece automaticamente en la web bajo el sector elegido.</p>
+        <div class="adm-grid-2">
+          <div>
+            <label>Sector</label>
+            <select id="adm-newrole-sector"></select>
+          </div>
+          <div>
+            <label>Nombre del rol</label>
+            <input type="text" id="adm-newrole-label" placeholder="ej: Hornero" />
+          </div>
+        </div>
+        <div class="adm-grid-2">
+          <div>
+            <label>Subtítulo / Turno (opcional)</label>
+            <input type="text" id="adm-newrole-sub" placeholder="ej: Turno mañana" />
+          </div>
+          <div>
+            <label>Persona / Referente (opcional)</label>
+            <input type="text" id="adm-newrole-persona" placeholder="ej: Juan Perez" />
+          </div>
+        </div>
+        <div class="adm-grid-2">
+          <div>
+            <label>Reporta a (opcional)</label>
+            <input type="text" id="adm-newrole-reporta" placeholder="ej: Jefe Operativo Panificadora" />
+          </div>
+          <div>
+            <label>Nivel (opcional)</label>
+            <select id="adm-newrole-nivel">
+              <option value="Operativo">Operativo</option>
+              <option value="Jefe">Jefe</option>
+              <option value="Auxiliar">Auxiliar</option>
+              <option value="Producción">Producción</option>
+              <option value="Rol">Rol</option>
+            </select>
+          </div>
+        </div>
+        <button id="adm-newrole-submit" class="adm-primary">Crear rol</button>
+        <p id="adm-newrole-msg" class="adm-err"></p>
+      </div>
     </main>
   </section>
 

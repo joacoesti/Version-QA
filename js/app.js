@@ -193,7 +193,7 @@ function ensureDocxPreviewLoaded() {
     });
     Promise.resolve()
       .then(() => loadScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'))
-      .then(() => loadScript('https://cdnjs.cloudflare.com/ajax/libs/docx-preview/0.3.5/docx-preview.min.js'))
+      .then(() => loadScript('https://cdn.jsdelivr.net/npm/docx-preview@0.3.5/dist/docx-preview.min.js'))
       .then(resolve).catch(reject);
   });
 }

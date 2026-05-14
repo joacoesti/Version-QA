@@ -269,3 +269,54 @@ html, body {
   font-family: ui-monospace, monospace;
   font-size: 12px;
 }
+
+/* ===== Lista de manuales (delete) ===== */
+.adm-docs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.adm-doc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: #fafbff;
+  border: 1px solid var(--adm-border);
+  border-radius: 8px;
+  gap: 12px;
+}
+.adm-doc-info { flex: 1; min-width: 0; }
+.adm-doc-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--adm-text);
+}
+.adm-doc-meta {
+  font-size: 12px;
+  color: var(--adm-mute);
+  margin-top: 2px;
+}
+.adm-doc-meta code {
+  background: var(--adm-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+.adm-danger {
+  background: white;
+  color: var(--adm-danger);
+  border: 1px solid var(--adm-danger);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.adm-danger:hover {
+  background: var(--adm-danger);
+  color: white;
+}

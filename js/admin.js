@@ -349,6 +349,123 @@
     }
   });
 
+
+  // ===== NUEVA SECCION: MANUALES EXISTENTES (delete) =====
+
+  function renderDocsList() {
+    const $list = document.getElementById('adm-docs-list');
+    if (!$list) return;
+    if (!DOCUMENTOS.length) {
+      $list.innerHTML = '<p class="adm-muted">No hay manuales cargados.</p>';
+      return;
+    }
+    $list.innerHTML = DOCUMENTOS
+      .filter(function (d) { return d.disponible; })
+      .map(function (d) {
+        return (
+          '<div class="adm-doc-row" data-doc-id="' + d.id + '">' +
+          '  <div class="adm-doc-info">' +
+          '    <div class="adm-doc-title">' + escapeHtml(d.titulo) + '</div>' +
+          '    <div class="adm-doc-meta">' + escapeHtml(d.sectorId) + ' / ' + escapeHtml(d.roleId) + ' &mdash; <code>' + escapeHtml(d.id) + '</code></div>' +
+          '  </div>' +
+          '  <button class="adm-danger" data-action="delete" data-doc-id="' + d.id + '">Eliminar</button>' +
+          '</div>'
+        );
+      })
+      .join('');
+
+    $list.querySelectorAll('[data-action="delete"]').forEach(function (btn) {
+      btn.addEventListener('click', function () { deleteDoc(btn.getAttribute('data-doc-id')); });
+    });
+  }
+
+  async function deleteDoc(docId) {
+    const doc = DOCUMENTOS.find(function (d) { return d.id === docId; });
+    if (!doc) return;
+    if (!confirm('Eliminar "' + doc.titulo + '"? Se borra del repo, de Supabase y del Storage. NO se puede deshacer.')) return;
+
+    try {
+      const res = await apiFetch('/api/admin/delete-doc', { method: 'POST', body: { docId: docId } });
+      const data = await res.json();
+      if (!res.ok) {
+        alert('Error: ' + (data.error || 'desconocido') + ' - ' + (data.detail || ''));
+        return;
+      }
+      alert('Eliminado. Esperá ~1 min al redeploy de Vercel y refrescá esta página.');
+      await loadData();
+      renderDocsList();
+    } catch (err) {
+      alert('Error de red: ' + err.message);
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // ===== NUEVA SECCION: CREAR ROL =====
+
+  function populateNewRoleSectorDropdown() {
+    const $sec = document.getElementById('adm-newrole-sector');
+    if (!$sec) return;
+    $sec.innerHTML = SECTORES.map(function (s) {
+      return '<option value="' + s.id + '">' + escapeHtml(s.label) + '</option>';
+    }).join('');
+  }
+
+  async function createRole() {
+    const $msg = document.getElementById('adm-newrole-msg');
+    const $btn = document.getElementById('adm-newrole-submit');
+    $msg.textContent = '';
+    const sectorId = document.getElementById('adm-newrole-sector').value;
+    const label = document.getElementById('adm-newrole-label').value.trim();
+    const sub = document.getElementById('adm-newrole-sub').value.trim();
+    const persona = document.getElementById('adm-newrole-persona').value.trim();
+    const reporta = document.getElementById('adm-newrole-reporta').value.trim();
+    const nivel = document.getElementById('adm-newrole-nivel').value;
+    if (!label) { $msg.textContent = 'Falta nombre del rol'; return; }
+    $btn.disabled = true; $btn.textContent = 'Creando...';
+    try {
+      const res = await apiFetch('/api/admin/create-role', {
+        method: 'POST',
+        body: { sectorId: sectorId, label: label, sub: sub, persona: persona, reporta: reporta, nivel: nivel },
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        $msg.textContent = (data.error || 'Error') + ' - ' + (data.detail || '');
+        return;
+      }
+      $msg.style.color = '#1a8a3a';
+      $msg.textContent = 'Rol creado con ID: ' + data.roleId + '. Esperá ~1 min al redeploy de Vercel para verlo en la web.';
+      document.getElementById('adm-newrole-label').value = '';
+      document.getElementById('adm-newrole-sub').value = '';
+      document.getElementById('adm-newrole-persona').value = '';
+      document.getElementById('adm-newrole-reporta').value = '';
+      await loadData();
+      renderDocsList();
+      populateNewRoleSectorDropdown();
+    } catch (err) {
+      $msg.textContent = 'Error de red: ' + err.message;
+    } finally {
+      $btn.disabled = false; $btn.textContent = 'Crear rol';
+    }
+  }
+
+  // Wire-up post-login: cuando entramos al admin tambien renderizamos las dos secciones nuevas
+  const originalLoadData = loadData;
+  loadData = async function () {
+    await originalLoadData();
+    renderDocsList();
+    populateNewRoleSectorDropdown();
+    const $newroleBtn = document.getElementById('adm-newrole-submit');
+    if ($newroleBtn && !$newroleBtn._wired) {
+      $newroleBtn._wired = true;
+      $newroleBtn.addEventListener('click', createRole);
+    }
+  };
+
   // INIT
   tryAutoLogin();
 })();
