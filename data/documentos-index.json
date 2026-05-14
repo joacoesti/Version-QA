@@ -208,5 +208,19 @@
     "path": "docs/abastecimiento/abastecimiento-anexo-002-capacidad-de-modulos.md",
     "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778785854540-05-12-unisolanxcocaba002controlesmoduloscapacidades.docx",
     "originalPath": "abastecimiento/1778785854540-05-12-unisolanxcocaba002controlesmoduloscapacidades.docx"
+  },
+  {
+    "id": "abastecimiento-anexo-003-planillas-de-stock",
+    "documentoId": "tareas-diarias",
+    "sectorId": "abastecimiento",
+    "roleId": "abastecimiento",
+    "badge": "Anexo",
+    "titulo": "Anexo-003-Planillas de Stock",
+    "descripcion": "",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/abastecimiento/abastecimiento-anexo-003-planillas-de-stock.md",
+    "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778785953428-05-12-unisolanxcocaba003usoplanillascontrolstock.docx",
+    "originalPath": "abastecimiento/1778785953428-05-12-unisolanxcocaba003usoplanillascontrolstock.docx"
   }
 ]
