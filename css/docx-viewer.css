@@ -1,0 +1,38 @@
+/* css/docx-viewer.css - estilo para el viewer de docx con formato preservado */
+
+.docx-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 16px;
+  background: #f7f8fa;
+  border-bottom: 1px solid #e3e6eb;
+}
+.docx-download {
+  font-size: 13px;
+  padding: 6px 12px;
+  background: #1a73e8;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.docx-download:hover { background: #155bb8; }
+
+.docx-preview-wrap {
+  background: #f4f5f9;
+  padding: 0 !important;
+  min-height: 60vh;
+}
+.docx-preview-wrap .docx-wrapper {
+  background: transparent;
+  padding: 16px 8px;
+}
+.docx-preview-wrap section.docx {
+  margin: 0 auto 16px;
+  background: white;
+  box-shadow: 0 1px 6px rgba(0,0,0,.1);
+  border-radius: 4px;
+  max-width: 100%;
+}
+@media (max-width: 760px) {
+  .docx-preview-wrap section.docx { padding: 16px !important; }
+}

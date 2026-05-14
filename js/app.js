@@ -154,6 +154,11 @@ async function renderDocument(root, docId) {
   const d = byId(window.UNISOL.state.documentos, docId);
   root.innerHTML = `<section class="screen active"><div class="content-block">Cargando documento...</div></section>`;
   try {
+    // Si el documento tiene originalUrl (subido via admin con docx en Storage), renderizar con formato 1:1
+    if (d.originalUrl) {
+      return await renderDocxWithFormat(root, d);
+    }
+    // Sino, render markdown tradicional
     const md = await loadMarkdown(d.path);
     const toc = mdExtractTOC(md);
     root.innerHTML = `<section class="screen active">${toc}<div class="content-block markdown">${mdToHTML(md)}</div></section>`;
@@ -174,6 +179,60 @@ async function renderDocument(root, docId) {
     });
   } catch(e) {
     root.innerHTML = `<section class="screen active"><div class="coming-card"><div class="coming-icon">⚠️</div><div class="coming-title">No se pudo abrir el documento</div><div class="coming-desc">${e.message}</div></div></section>`;
+  }
+}
+
+// Carga dependencias docx-preview + jszip on-demand (solo si se abre un doc con originalUrl)
+function ensureDocxPreviewLoaded() {
+  if (window.docx && typeof window.docx.renderAsync === 'function') return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const loadScript = (src) => new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = src; s.onload = res; s.onerror = () => rej(new Error('No pude cargar ' + src));
+      document.head.appendChild(s);
+    });
+    Promise.resolve()
+      .then(() => loadScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'))
+      .then(() => loadScript('https://cdnjs.cloudflare.com/ajax/libs/docx-preview/0.3.5/docx-preview.min.js'))
+      .then(resolve).catch(reject);
+  });
+}
+
+function ensureDocxViewerCss() {
+  if (document.querySelector('link[data-docx-viewer-css]')) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'css/docx-viewer.css';
+  link.setAttribute('data-docx-viewer-css', 'true');
+  document.head.appendChild(link);
+}
+
+async function renderDocxWithFormat(root, d) {
+  ensureDocxViewerCss();
+  root.innerHTML = `<section class="screen active">
+    <div class="docx-toolbar">
+      <a class="docx-download" href="${d.originalUrl}" download target="_blank">⬇ Descargar original (.docx)</a>
+    </div>
+    <div id="docx-container" class="content-block docx-preview-wrap">Cargando documento con formato...</div>
+  </section>`;
+  try {
+    await ensureDocxPreviewLoaded();
+    const buffer = await fetch(d.originalUrl).then(r => {
+      if (!r.ok) throw new Error('No pude descargar el original (' + r.status + ')');
+      return r.arrayBuffer();
+    });
+    const container = document.getElementById('docx-container');
+    container.innerHTML = '';
+    await window.docx.renderAsync(buffer, container, null, {
+      className: 'docx-content',
+      inWrapper: true,
+      ignoreWidth: false,
+      ignoreHeight: false,
+      breakPages: true,
+      experimental: true,
+    });
+  } catch (e) {
+    root.innerHTML = `<section class="screen active"><div class="coming-card"><div class="coming-icon">⚠️</div><div class="coming-title">No se pudo abrir el documento con formato</div><div class="coming-desc">${e.message}</div><a href="${d.originalUrl}" download target="_blank" class="btn-download">⬇ Descargar original</a></div></section>`;
   }
 }
 

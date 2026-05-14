@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-    const { markdown, fileName, sectorId, roleId, titulo, descripcion, badge, replaceDocId } = body || {};
+    const { markdown, fileName, sectorId, roleId, titulo, descripcion, badge, replaceDocId, originalUrl, originalPath } = body || {};
 
     if (!markdown || markdown.trim().length < 20) {
       return res.status(400).json({ error: 'Markdown vacio o muy corto' });
@@ -56,6 +56,8 @@ export default async function handler(req, res) {
       entry.disponible = true;
       entry.tipo = 'markdown';
       entry.path = targetPath;
+      if (originalUrl) entry.originalUrl = originalUrl;
+      if (originalPath) entry.originalPath = originalPath;
     } else {
       const slug = slugify(roleId + '-' + titulo);
       targetPath = 'docs/' + sectorId + '/' + slug + '.md';
@@ -78,6 +80,8 @@ export default async function handler(req, res) {
         tipo: 'markdown',
         path: targetPath,
       };
+      if (originalUrl) entry.originalUrl = originalUrl;
+      if (originalPath) entry.originalPath = originalPath;
       index.push(entry);
     }
 

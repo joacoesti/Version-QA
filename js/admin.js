@@ -232,17 +232,47 @@
     $submit.textContent = 'Subiendo...';
 
     try {
+      // 1) Pedir signed URL para subir el docx ORIGINAL directo a Supabase Storage
+      $submit.textContent = 'Solicitando upload URL...';
+      const urlRes = await apiFetch('/api/admin/get-upload-url', {
+        method: 'POST',
+        body: { fileName: file.name, sectorId },
+      });
+      const urlData = await urlRes.json();
+      if (!urlRes.ok) {
+        $err.textContent = 'Error pidiendo URL: ' + (urlData.error || '');
+        return;
+      }
+
+      // 2) PUT directo del .docx (bypassa Vercel, sin limite de 4.5MB)
+      $submit.textContent = 'Subiendo archivo original...';
+      const putRes = await fetch(urlData.signedUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': file.type || 'application/octet-stream' },
+        body: file,
+      });
+      if (!putRes.ok) {
+        const t = await putRes.text();
+        $err.textContent = 'Error subiendo a storage: ' + putRes.status + ' ' + t.slice(0, 200);
+        return;
+      }
+
+      // 3) Convertir a markdown (en cliente, para RAG)
+      $submit.textContent = 'Convirtiendo a markdown...';
       const markdown = await fileToMarkdown(file);
       if (!markdown || markdown.length < 20) {
-        $err.textContent = 'No pude extraer texto del archivo. Verificá que sea un .docx válido.';
+        $err.textContent = 'No pude extraer texto del archivo. Verifica que sea un .docx valido.';
         return;
       }
       const mdSizeKB = Math.round((new Blob([markdown]).size) / 1024);
       console.log('Markdown size:', mdSizeKB, 'KB');
       if (mdSizeKB > 4000) {
-        $err.textContent = 'El manual convertido pesa ' + mdSizeKB + 'KB (limite ~4MB). Probá un documento mas chico o sin imagenes/tablas pesadas.';
+        $err.textContent = 'Markdown pesa ' + mdSizeKB + 'KB (limite 4MB).';
         return;
       }
+
+      // 4) Commitear markdown + actualizar index con originalUrl
+      $submit.textContent = 'Commiteando al repo...';
       const res = await apiFetch('/api/admin/upload-manual', {
         method: 'POST',
         body: {
@@ -254,6 +284,8 @@
           descripcion,
           badge,
           replaceDocId,
+          originalUrl: urlData.publicUrl,
+          originalPath: urlData.path,
         },
       });
       // Lectura defensiva: si no es JSON, mostramos el texto crudo
