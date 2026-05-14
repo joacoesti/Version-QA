@@ -29,7 +29,8 @@
     "icono": "🥖",
     "roles": [
       "jefe-operativo-panificadora",
-      "productor-facturas"
+      "productor-facturas",
+      "hornero"
     ]
   }
 ]
