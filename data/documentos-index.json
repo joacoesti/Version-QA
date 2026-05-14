@@ -178,5 +178,19 @@
     "disponible": true,
     "tipo": "markdown",
     "path": "docs/abastecimiento/abastecimiento-anexo---gestion-de-etiquetas-y-vida-util.md"
+  },
+  {
+    "id": "abastecimiento-anexo---gestion-de-etiquetas-y-vida-util-2",
+    "documentoId": "tareas-diarias",
+    "sectorId": "abastecimiento",
+    "roleId": "abastecimiento",
+    "badge": "Anexo",
+    "titulo": "Anexo - Gestion de etiquetas y vida útil",
+    "descripcion": "",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/abastecimiento/abastecimiento-anexo---gestion-de-etiquetas-y-vida-util.md",
+    "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778763241172-05-12-unisolanxcocaba001gestionetiquetasvidautilv2.docx",
+    "originalPath": "abastecimiento/1778763241172-05-12-unisolanxcocaba001gestionetiquetasvidautilv2.docx"
   }
 ]
