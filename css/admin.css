@@ -320,3 +320,62 @@ html, body {
   background: var(--adm-danger);
   color: white;
 }
+
+/* ===== Lista de manuales agrupada por sector ===== */
+.adm-sector-group {
+  border: 1px solid var(--adm-border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: white;
+}
+.adm-sector-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #f7f8fa;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid var(--adm-border);
+  transition: background .15s;
+}
+.adm-sector-header:hover {
+  background: #eef1f7;
+}
+.adm-sector-icon { font-size: 18px; }
+.adm-sector-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--adm-text);
+  flex: 1;
+}
+.adm-sector-count {
+  font-size: 12px;
+  color: var(--adm-mute);
+  background: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--adm-border);
+}
+.adm-sector-chev {
+  font-size: 14px;
+  color: var(--adm-mute);
+  transition: transform .2s;
+}
+.adm-sector-group.collapsed .adm-sector-chev {
+  transform: rotate(-90deg);
+}
+.adm-sector-group.collapsed .adm-sector-body {
+  display: none;
+}
+.adm-sector-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.adm-sector-body .adm-doc-row {
+  background: white;
+  border: 1px solid var(--adm-border);
+}

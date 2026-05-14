@@ -164,36 +164,79 @@
 
   // ===== SUBMIT =====
 
-  // Convierte el .docx a markdown EN EL NAVEGADOR usando mammoth.browser.
-  // SKIP imagenes: el agente solo necesita texto, y las imagenes inflan mucho el payload.
+  // Convierte .docx -> HTML (mammoth, preserva tablas) -> markdown (turndown con GFM)
+  // Ademas, para cada tabla agrega una version textual fila-por-fila que se embebe mejor.
   function fileToMarkdown(file) {
     return new Promise(function (resolve, reject) {
       const reader = new FileReader();
       reader.onload = async function () {
         try {
-          if (!window.mammoth || !window.mammoth.convertToMarkdown) {
+          if (!window.mammoth || !window.mammoth.convertToHtml) {
             reject(new Error('mammoth.browser no esta cargado'));
             return;
           }
-          // Funcion convertImage que devuelve un placeholder vacio (no embebe la imagen)
+          if (!window.TurndownService) {
+            reject(new Error('turndown no esta cargado'));
+            return;
+          }
           const skipImages = window.mammoth.images.imgElement(function () {
             return { src: '' };
           });
-          const result = await window.mammoth.convertToMarkdown(
+          // 1) DOCX -> HTML (preserva tablas, headers, listas)
+          const htmlResult = await window.mammoth.convertToHtml(
             { arrayBuffer: reader.result },
             { convertImage: skipImages }
           );
-          let md = result.value || '';
-          // Limpieza extra: cualquier ![...](data:...) residual o ![]() vacio
-          md = md.replace(/!\[[^\]]*\]\(data:[^)]+\)/g, '[imagen omitida]');
-          md = md.replace(/!\[\]\(\s*\)/g, '');
-          md = md.replace(/!\[[^\]]*\]\(\s*\)/g, '');
-          resolve(md.trim());
+          let html = htmlResult.value || '';
+          // Limpiar imgs vacias
+          html = html.replace(/<img[^>]*src=""[^>]*>/g, '');
+
+          // 2) Generar texto "fila por fila" para CADA tabla y appendearlo a la tabla en el HTML
+          html = enrichTablesWithRowText(html);
+
+          // 3) HTML -> Markdown con Turndown + GFM (manejo correcto de tablas)
+          const td = new window.TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced', bulletListMarker: '-' });
+          if (window.turndownPluginGfm && window.turndownPluginGfm.gfm) {
+            td.use(window.turndownPluginGfm.gfm);
+          }
+          let md = td.turndown(html);
+          md = md.replace(/\n{3,}/g, '\n\n').trim();
+          resolve(md);
         } catch (err) { reject(err); }
       };
       reader.onerror = reject;
       reader.readAsArrayBuffer(file);
     });
+  }
+
+  // Para cada tabla del HTML, agrega despues un parrafo con representacion textual de cada fila.
+  // Eso mejora MUCHO la recuperacion semantica (las preguntas matchean mejor con texto que con pipes).
+  function enrichTablesWithRowText(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const tables = doc.querySelectorAll('table');
+    tables.forEach(function (t) {
+      const rows = Array.from(t.querySelectorAll('tr'));
+      if (rows.length < 2) return;
+      // Asumir primera fila como header
+      const headers = Array.from(rows[0].cells).map(function (c) { return c.textContent.trim(); });
+      const lines = [];
+      for (let r = 1; r < rows.length; r++) {
+        const cells = Array.from(rows[r].cells).map(function (c) { return c.textContent.trim(); });
+        if (!cells.length) continue;
+        const parts = [];
+        for (let i = 0; i < cells.length; i++) {
+          const h = headers[i] || ('col' + (i + 1));
+          parts.push(h + ': ' + cells[i]);
+        }
+        lines.push('- ' + parts.join(' | '));
+      }
+      if (lines.length === 0) return;
+      const extra = doc.createElement('p');
+      extra.innerHTML = '<em>Datos de la tabla (formato texto):</em><br>' + lines.join('<br>');
+      t.parentNode.insertBefore(extra, t.nextSibling);
+    });
+    return doc.body.innerHTML;
   }
 
   $submit.addEventListener('click', async function (e) {
@@ -393,27 +436,64 @@
   function renderDocsList() {
     const $list = document.getElementById('adm-docs-list');
     if (!$list) return;
-    if (!DOCUMENTOS.length) {
+    const docs = DOCUMENTOS.filter(function (d) { return d.disponible; });
+    if (!docs.length) {
       $list.innerHTML = '<p class="adm-muted">No hay manuales cargados.</p>';
       return;
     }
-    $list.innerHTML = DOCUMENTOS
-      .filter(function (d) { return d.disponible; })
-      .map(function (d) {
+
+    // Agrupar por sectorId
+    const grouped = {};
+    docs.forEach(function (d) {
+      const s = d.sectorId || 'sin-sector';
+      if (!grouped[s]) grouped[s] = [];
+      grouped[s].push(d);
+    });
+
+    // Render: una seccion por sector con header colapsable
+    const sectorOrder = SECTORES.map(function (s) { return s.id; });
+    const sortedKeys = Object.keys(grouped).sort(function (a, b) {
+      const ia = sectorOrder.indexOf(a); const ib = sectorOrder.indexOf(b);
+      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+    });
+
+    $list.innerHTML = sortedKeys.map(function (sectorId) {
+      const sector = SECTORES.find(function (s) { return s.id === sectorId; });
+      const label = sector ? sector.label : sectorId;
+      const icon = sector ? (sector.icono || '📁') : '📁';
+      const items = grouped[sectorId];
+      const rowsHtml = items.map(function (d) {
         return (
           '<div class="adm-doc-row" data-doc-id="' + d.id + '">' +
           '  <div class="adm-doc-info">' +
           '    <div class="adm-doc-title">' + escapeHtml(d.titulo) + '</div>' +
-          '    <div class="adm-doc-meta">' + escapeHtml(d.sectorId) + ' / ' + escapeHtml(d.roleId) + ' &mdash; <code>' + escapeHtml(d.id) + '</code></div>' +
+          '    <div class="adm-doc-meta">' + escapeHtml(d.roleId) + ' &mdash; <code>' + escapeHtml(d.id) + '</code></div>' +
           '  </div>' +
           '  <button class="adm-danger" data-action="delete" data-doc-id="' + d.id + '">Eliminar</button>' +
           '</div>'
         );
-      })
-      .join('');
+      }).join('');
+      return (
+        '<div class="adm-sector-group">' +
+        '  <div class="adm-sector-header" data-sector="' + sectorId + '">' +
+        '    <span class="adm-sector-icon">' + icon + '</span>' +
+        '    <span class="adm-sector-name">' + escapeHtml(label) + '</span>' +
+        '    <span class="adm-sector-count">' + items.length + ' manuales</span>' +
+        '    <span class="adm-sector-chev">▾</span>' +
+        '  </div>' +
+        '  <div class="adm-sector-body">' + rowsHtml + '</div>' +
+        '</div>'
+      );
+    }).join('');
 
+    // Wire-up: delete + collapse
     $list.querySelectorAll('[data-action="delete"]').forEach(function (btn) {
       btn.addEventListener('click', function () { deleteDoc(btn.getAttribute('data-doc-id')); });
+    });
+    $list.querySelectorAll('.adm-sector-header').forEach(function (h) {
+      h.addEventListener('click', function () {
+        h.parentElement.classList.toggle('collapsed');
+      });
     });
   }
 
