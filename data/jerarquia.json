@@ -28,5 +28,10 @@
     "reporta": "Jefe Operativo Panificadora",
     "nivel": "level-ayudante",
     "label": "Producción"
+  },
+  "hornero": {
+    "reporta": "Jefe Operativo de Panificadora",
+    "nivel": "level-ayudante",
+    "label": "Producción"
   }
 }
