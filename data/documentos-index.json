@@ -168,20 +168,6 @@
     "path": null
   },
   {
-    "id": "abastecimiento-anexo-002---control-de-modulos",
-    "documentoId": "tareas-diarias",
-    "sectorId": "abastecimiento",
-    "roleId": "abastecimiento",
-    "badge": "Anexo",
-    "titulo": "Anexo 002 - Control de Modulos",
-    "descripcion": "",
-    "disponible": true,
-    "tipo": "markdown",
-    "path": "docs/abastecimiento/abastecimiento-anexo-002---control-de-modulos.md",
-    "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778765476103-05-12-unisolanxcocaba002controlesmoduloscapacidades.docx",
-    "originalPath": "abastecimiento/1778765476103-05-12-unisolanxcocaba002controlesmoduloscapacidades.docx"
-  },
-  {
     "id": "cocina-jefe-cocina-anexo-002--apertura-inicial",
     "documentoId": "tareas-diarias",
     "sectorId": "cocina",
