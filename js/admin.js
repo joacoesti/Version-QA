@@ -264,12 +264,25 @@
         $err.textContent = 'No pude extraer texto del archivo. Verifica que sea un .docx valido.';
         return;
       }
-      const mdSizeKB = Math.round((new Blob([markdown]).size) / 1024);
-      console.log('Markdown size:', mdSizeKB, 'KB');
+      const mdSize = new Blob([markdown]).size;
+      const mdSizeKB = Math.round(mdSize / 1024);
+      const mdChars = markdown.length;
+      const estimatedChunks = Math.max(1, Math.round(mdChars / 500));
+      console.log('Extraccion: ' + mdChars + ' chars, ' + mdSizeKB + ' KB, ~' + estimatedChunks + ' chunks estimados');
       if (mdSizeKB > 4000) {
         $err.textContent = 'Markdown pesa ' + mdSizeKB + 'KB (limite 4MB).';
         return;
       }
+      // Mostrar diagnostico antes del upload
+      const $diag = document.getElementById('adm-diag') || (function(){
+        const d = document.createElement('p');
+        d.id = 'adm-diag';
+        d.className = 'adm-muted';
+        d.style.fontSize = '12px';
+        $err.parentNode.insertBefore(d, $err);
+        return d;
+      })();
+      $diag.innerHTML = 'Extraido del .docx: <b>' + mdChars.toLocaleString() + '</b> caracteres &middot; <b>' + mdSizeKB + ' KB</b> &middot; ~<b>' + estimatedChunks + ' chunks</b> esperados';
 
       // 4) Commitear markdown + actualizar index con originalUrl
       $submit.textContent = 'Commiteando al repo...';
@@ -302,6 +315,31 @@
       }
       LAST_UPLOAD = data;
       showResult(data);
+
+      // === NUEVO: re-ingesta automatica al agente ===
+      $submit.textContent = 'Re-ingestando al agente...';
+      const $reingMsg = document.getElementById('adm-reingest-msg');
+      if ($reingMsg) $reingMsg.textContent = 'Re-ingestando automaticamente...';
+      try {
+        const rRes = await apiFetch('/api/admin/reingest-file', {
+          method: 'POST',
+          body: { path: data.path },
+        });
+        const rData = await rRes.json();
+        if (rRes.ok) {
+          if ($reingMsg) $reingMsg.innerHTML = '✅ Agente actualizado: <b>' + rData.chunks + ' chunks</b> cargados. Ya podes consultarlo en la pestaña Asistente.';
+        } else {
+          if ($reingMsg) $reingMsg.textContent = '⚠ El manual se commiteo pero la re-ingesta fallo: ' + (rData.detail || rData.error || '') + '. Apretá el boton "Re-ingestar al agente" manualmente en 1 min cuando termine el deploy.';
+        }
+      } catch (rErr) {
+        if ($reingMsg) $reingMsg.textContent = '⚠ El manual se subio pero no pude re-ingestar automaticamente. Probá el boton manualmente: ' + rErr.message;
+      }
+
+      // Refrescar la lista de manuales y dropdowns
+      try {
+        await loadData();
+      } catch (_) {}
+
     } catch (err) {
       $err.textContent = 'Error: ' + err.message;
     } finally {

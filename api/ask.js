@@ -5,7 +5,7 @@
 import { embed, chat } from '../lib/gemini.js';
 import { matchDocuments, logQuery, countQueriesToday } from '../lib/supabase.js';
 
-const DEFAULT_TOP_K = parseInt(process.env.TOP_K || '6', 10);
+const DEFAULT_TOP_K = parseInt(process.env.TOP_K || '8', 10);
 const MAX_DAILY_QUERIES = parseInt(process.env.MAX_DAILY_QUERIES || '200', 10);
 
 // Sectores (matchean con las carpetas de docs/)
@@ -13,9 +13,9 @@ const SECTORS = ['abastecimiento', 'cocina', 'panificadora', 'fiambreria'];
 
 // Sinonimos para detectar el sector en la pregunta (todo minusculas, sin tildes)
 const SECTOR_SYNONYMS = {
-  abastecimiento: ['abastecimiento', 'compras', 'pedido', 'pedidos', 'insumos', 'mercaderia', 'mercaderia general', 'papeleria', 'proveedor', 'proveedores'],
-  cocina: ['cocina', 'cocinero', 'cocineros', 'jefe de cocina', 'auxiliar de cocina', 'ayudante de cocina', 'platos'],
-  panificadora: ['panificadora', 'pan', 'panes', 'panadero', 'panaderia', 'factura', 'facturas', 'producto', 'productor', 'camara de frio', 'camaras de frio', 'ingreso sector', 'jefe operativo'],
+  abastecimiento: ['abastecimiento', 'compras', 'pedido', 'pedidos', 'insumos', 'mercaderia', 'mercaderia general', 'papeleria', 'proveedor', 'proveedores', 'modulo', 'modulos', 'isla', 'gondola', 'gondolas', 'stock', 'reposicion', 'productos', 'etiqueta', 'etiquetas', 'vida util', 'control de modulos', 'isla congelados', 'congelados'],
+  cocina: ['cocina', 'cocinero', 'cocineros', 'jefe de cocina', 'auxiliar de cocina', 'ayudante de cocina', 'platos', 'guarnicion', 'guarniciones'],
+  panificadora: ['panificadora', 'pan', 'panes', 'panadero', 'panaderia', 'factura', 'facturas', 'productor', 'camara de frio', 'camaras de frio', 'ingreso sector', 'jefe operativo', 'masa', 'masas'],
   fiambreria: ['fiambreria', 'fiambre', 'fiambres', 'jamon', 'queso', 'embutido'],
 };
 
@@ -119,7 +119,7 @@ export default async function handler(req, res) {
 
     // Si detectamos sector, pedimos extra y filtramos
     const searchTopK = detectedSector ? top_k * 3 : top_k;
-    let chunks = await matchDocuments(queryEmbedding, searchTopK);
+    let chunks = await matchDocuments(queryEmbedding, searchTopK, 0.2);
 
     if (detectedSector) {
       const filtered = chunks.filter((c) => {

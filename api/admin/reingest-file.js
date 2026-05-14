@@ -3,7 +3,7 @@
 // Lee el .md del repo, lo chunkea, genera embeddings y upserta en Supabase.
 
 import { verifyToken, tokenFromReq } from '../../lib/auth.js';
-import { getRawFile } from '../../lib/github.js';
+import { getFile } from '../../lib/github.js';
 import { chunkText } from '../../lib/chunker.js';
 import { embedBatch } from '../../lib/gemini.js';
 import { deleteBySource, insertChunks } from '../../lib/supabase.js';
@@ -31,8 +31,12 @@ export default async function handler(req, res) {
     const fullPath = relativePath.startsWith('docs/') ? relativePath : 'docs/' + relativePath;
     const source = fullPath.replace(/^docs\//, '');
 
-    // 1) Bajar el .md del repo (raw)
-    const text = await getRawFile(fullPath);
+    // 1) Bajar el .md del repo via API (siempre fresca, sin delay de CDN despues de un commit reciente)
+    const fileObj = await getFile(fullPath);
+    if (!fileObj.exists) {
+      return res.status(404).json({ error: 'No existe en el repo: ' + fullPath });
+    }
+    const text = Buffer.from(fileObj.content, 'base64').toString('utf-8');
     if (!text || text.trim().length < 20) {
       return res.status(400).json({ error: 'Documento vacio' });
     }
