@@ -88,5 +88,17 @@
     "estado": "Rol operativo cargado",
     "reporta": "Jefe Operativo Panificadora",
     "nivel": "Producción"
+  },
+  {
+    "id": "hornero",
+    "sectorId": "panificadora",
+    "label": "Hornero",
+    "sub": "",
+    "documentos": [],
+    "puesto": "Hornero",
+    "persona": "Pendiente de asignación",
+    "estado": "Rol operativo cargado",
+    "reporta": "Jefe Operativo de Panificadora",
+    "nivel": "Producción"
   }
 ]
