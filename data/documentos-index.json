@@ -168,18 +168,6 @@
     "path": null
   },
   {
-    "id": "abastecimiento-anexo---gestion-de-etiquetas-y-vida-util",
-    "documentoId": "tareas-diarias",
-    "sectorId": "abastecimiento",
-    "roleId": "abastecimiento",
-    "badge": "Anexo",
-    "titulo": "Anexo - Gestión de etiquetas y vida útil",
-    "descripcion": "",
-    "disponible": true,
-    "tipo": "markdown",
-    "path": "docs/abastecimiento/abastecimiento-anexo---gestion-de-etiquetas-y-vida-util.md"
-  },
-  {
     "id": "abastecimiento-anexo---gestion-de-etiquetas-y-vida-util-2",
     "documentoId": "tareas-diarias",
     "sectorId": "abastecimiento",
