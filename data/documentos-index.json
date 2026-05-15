@@ -250,5 +250,19 @@
     "path": "docs/abastecimiento/abastecimiento-anexo-005-encapag-islas.md",
     "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/abastecimiento/1778786308915-05-14-anxcocaba005encendidoapagadocontrolislas.docx",
     "originalPath": "abastecimiento/1778786308915-05-14-anxcocaba005encendidoapagadocontrolislas.docx"
+  },
+  {
+    "id": "cocina-ayudante-cocina-anexo-001-freidora",
+    "documentoId": "tareas-diarias",
+    "sectorId": "cocina",
+    "roleId": "ayudante-cocina",
+    "badge": "Anexo",
+    "titulo": "Anexo-001-Freidora",
+    "descripcion": "",
+    "disponible": true,
+    "tipo": "markdown",
+    "path": "docs/cocina/ayudante-cocina-anexo-001-freidora.md",
+    "originalUrl": "https://rmexsjomlmzyzkldwauy.supabase.co/storage/v1/object/public/manuales-originales/cocina/1778870033759-05-11-unisolanxcocayu001lineafreidorav2.docx",
+    "originalPath": "cocina/1778870033759-05-11-unisolanxcocayu001lineafreidorav2.docx"
   }
 ]
